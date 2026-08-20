@@ -23,6 +23,13 @@ Thumbs.db
 source-assets/
 references/visual/explorations/
 tools/blender-mcp/
+output/
+references/
+tools/
+public/assets/source/
+public/assets/images/
+**/*.zip
+public/assets/imagegen/banqiao-assets/1c94875422c97c3929a27501f34ba18d.glb
 
 # Environment files
 .env.*.local
