@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>banqiao-bee-3d-guide preview</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0f1115;
+        --panel: #171b22;
+        --panel-2: #1f2530;
+        --paper: #f1e7d3;
+        --paper-2: #ddd0b4;
+        --text: #f6f2ea;
+        --muted: #b8c0ce;
+        --accent: #e0b14f;
+        --line: rgba(255, 255, 255, 0.12);
+        --radius: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background:
+          radial-gradient(circle at top, rgba(224, 177, 79, 0.08), transparent 28%),
+          linear-gradient(180deg, #0b0d11, #10141a 30%, #0d1015);
+        color: var(--text);
+        font-family: Inter, Segoe UI, system-ui, -apple-system, sans-serif;
+      }
+
+      body {
+        padding: 24px;
+      }
+
+      .shell {
+        max-width: 1380px;
+        margin: 0 auto;
+      }
+
+      .hero,
+      .guide {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: rgba(10, 12, 16, 0.72);
+        backdrop-filter: blur(10px);
+      }
+
+      .hero {
+        position: relative;
+        min-height: 68vh;
+      }
+
+      .hero video {
+        width: 100%;
+        height: 100%;
+        min-height: 68vh;
+        object-fit: cover;
+        display: block;
+        filter: saturate(0.92) contrast(1.04);
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(7, 8, 10, 0.66), rgba(7, 8, 10, 0.28) 58%, rgba(7, 8, 10, 0.72)),
+          linear-gradient(180deg, transparent 0%, rgba(7, 8, 10, 0.08) 70%, rgba(7, 8, 10, 0.48));
+        pointer-events: none;
+      }
+
+      .hero-content {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        display: grid;
+        align-items: end;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 24px;
+        padding: 28px;
+      }
+
+      .title {
+        max-width: 46ch;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: var(--accent);
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 4.1rem);
+        line-height: 1;
+      }
+
+      .lede {
+        margin: 14px 0 0;
+        max-width: 42ch;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 15px;
+        line-height: 1.7;
+      }
+
+      .bee-hotspot {
+        justify-self: end;
+        align-self: center;
+        width: min(30vw, 320px);
+        aspect-ratio: 1;
+        border: 1px solid rgba(224, 177, 79, 0.38);
+        border-radius: 999px;
+        background:
+          radial-gradient(circle, rgba(224, 177, 79, 0.34), rgba(224, 177, 79, 0.08) 48%, transparent 69%),
+          rgba(12, 14, 18, 0.35);
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05) inset, 0 18px 60px rgba(0, 0, 0, 0.35);
+        display: grid;
+        place-items: center;
+        text-decoration: none;
+        color: var(--text);
+      }
+
+      .bee-hotspot span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 82%;
+        height: 82%;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(16, 18, 24, 0.7);
+        color: var(--accent);
+        font-size: 18px;
+        font-weight: 700;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .guide {
+        margin-top: 18px;
+        padding: 18px;
+      }
+
+      .guide-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+
+      .guide-head strong {
+        display: block;
+        font-size: 18px;
+      }
+
+      .status {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr) 300px;
+        gap: 16px;
+      }
+
+      .rail,
+      .stage,
+      .meta {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)), var(--panel);
+      }
+
+      .rail {
+        padding: 14px;
+      }
+
+      .rail button,
+      .preset button {
+        width: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        background: var(--panel-2);
+        color: var(--text);
+        text-align: left;
+        padding: 14px 14px 13px;
+        font: inherit;
+        cursor: pointer;
+      }
+
+      .rail button + button {
+        margin-top: 12px;
+      }
+
+      .rail button[data-active="true"] {
+        border-color: rgba(224, 177, 79, 0.7);
+        box-shadow: 0 0 0 1px rgba(224, 177, 79, 0.16) inset;
+      }
+
+      .rail small,
+      .meta p,
+      .preset small {
+        display: block;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+
+      .stage {
+        min-height: 460px;
+        padding: 18px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .viewport {
+        height: 100%;
+        min-height: 424px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background:
+          radial-gradient(circle at 50% 36%, rgba(224, 177, 79, 0.16), transparent 34%),
+          linear-gradient(160deg, rgba(255, 255, 255, 0.04), transparent 54%),
+          #10151b;
+        position: relative;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+      }
+
+      .viewport::before {
+        content: "";
+        position: absolute;
+        inset: 18% 12%;
+        border: 1px solid rgba(224, 177, 79, 0.32);
+        border-radius: 30px;
+        transform: perspective(900px) rotateX(66deg);
+        opacity: 0.85;
+      }
+
+      .model {
+        position: relative;
+        width: min(320px, 68%);
+        aspect-ratio: 1 / 1;
+        border-radius: 28px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background:
+          radial-gradient(circle at 30% 28%, rgba(255, 255, 255, 0.22), transparent 24%),
+          linear-gradient(180deg, rgba(224, 177, 79, 0.18), rgba(224, 177, 79, 0.04)),
+          rgba(255, 255, 255, 0.03);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+      }
+
+      .model::before,
+      .model::after {
+        content: "";
+        position: absolute;
+        inset: 22px;
+        border-radius: 22px;
+        border: 1px dashed rgba(255, 255, 255, 0.16);
+      }
+
+      .model::after {
+        inset: 48px;
+        border-style: solid;
+        border-color: rgba(224, 177, 79, 0.28);
+      }
+
+      .stage-label {
+        position: absolute;
+        left: 18px;
+        top: 18px;
+        padding: 8px 10px;
+        border-radius: 999px;
+        background: rgba(16, 18, 24, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .preset {
+        grid-column: 1 / -1;
+        margin-top: 16px;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .preset button[data-active="true"] {
+        border-color: rgba(224, 177, 79, 0.7);
+      }
+
+      .meta {
+        padding: 14px;
+      }
+
+      .meta h2 {
+        margin: 0 0 8px;
+        font-size: 17px;
+      }
+
+      .meta .box {
+        margin-top: 12px;
+        padding: 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .state-line {
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .is-hidden {
+        display: none;
+      }
+
+      .is-open .hero {
+        min-height: 300px;
+      }
+
+      .is-open .hero video {
+        min-height: 300px;
+      }
+
+      .is-open .hero-content {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+
+      .is-open .bee-hotspot {
+        width: 120px;
+        justify-self: start;
+        margin-top: 18px;
+      }
+
+      @media (max-width: 1080px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+
+        .preset {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 720px) {
+        body {
+          padding: 14px;
+        }
+
+        .hero-content {
+          grid-template-columns: 1fr;
+          padding: 18px;
+        }
+
+        .bee-hotspot {
+          width: min(48vw, 220px);
+          justify-self: start;
+        }
+
+        .preset {
+          grid-template-columns: 1fr;
+        }
+
+        .stage {
+          min-height: 360px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell" id="shell">
+      <section class="hero" aria-label="蜜蜂开场">
+        <video autoplay muted loop playsinline src="/assets/imagegen/banqiao-assets/蜜蜂.mp4"></video>
+        <div class="hero-content">
+          <div class="title">
+            <p class="eyebrow">banqiao bee 3d guide</p>
+            <h1>先点蜜蜂，再进入 3D 导览</h1>
+            <p class="lede">
+              这个预览只演示导览结构，不接入当前纱线交互。点击蜂入口后，进入板桥与畲族头饰两个模型的数字艺术导览层。
+            </p>
+          </div>
+          <a class="bee-hotspot" href="#guide" id="beeButton" aria-label="进入 3D 导览">
+            <span>点蜂进入导览</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="guide is-hidden" id="guide" aria-label="3D 导览界面">
+        <div class="guide-head">
+          <div>
+            <strong>Banqiao 3D guide shell</strong>
+            <span class="status" id="statusText">当前模式: video-intro</span>
+          </div>
+          <div class="status">板桥 3D 模型 / 畲族头饰 3D 模型 / 数字艺术预设切换</div>
+        </div>
+
+        <div class="layout">
+          <aside class="rail" aria-label="入口选择">
+            <button data-model="banqiao" data-active="true" type="button">
+              板桥3D 模型
+              <small>沙盘式村落视角, 可旋转查看地形和建筑层级。</small>
+            </button>
+            <button data-model="headdress" data-active="false" type="button">
+              畲族头饰 3D 模型
+              <small>物件式展示视角, 聚焦材质, 银饰, 织纹和轮廓。</small>
+            </button>
+          </aside>
+
+          <section class="stage" aria-label="3D 视窗">
+            <div class="stage-label" id="stageLabel">板桥3D 模型</div>
+            <div class="viewport">
+              <div class="model" id="modelShell" aria-hidden="true"></div>
+            </div>
+          </section>
+
+          <aside class="meta" aria-label="当前模型说明">
+            <h2 id="metaTitle">板桥 3D 模型</h2>
+            <p id="metaBody">默认真实材质版本。适合先看空间，再切换到数字艺术预设。</p>
+            <div class="box">
+              <strong>当前预设</strong>
+              <p id="presetDesc">半调</p>
+            </div>
+            <div class="state-line" id="stateLine">
+              点击模型入口切换视角。点击预设只改材质层，不改模型结构。
+            </div>
+          </aside>
+
+          <div class="preset" aria-label="数字艺术预设">
+            <button data-preset="halftone" data-active="true" type="button">
+              半调
+              <small>纸面颗粒和网点感</small>
+            </button>
+            <button data-preset="charcode" type="button">
+              字符编码
+              <small>文字与网格化扫描感</small>
+            </button>
+            <button data-preset="point-cloud" type="button">
+              数字点云
+              <small>点阵采样与轻雾化</small>
+            </button>
+            <button data-preset="wireframe-scan" type="button">
+              线框扫描
+              <small>蓝白线框和边界高亮</small>
+            </button>
+            <button data-preset="pixel" type="button">
+              像素化
+              <small>低分辨率颗粒重组</small>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const shell = document.getElementById("shell");
+      const guide = document.getElementById("guide");
+      const beeButton = document.getElementById("beeButton");
+      const statusText = document.getElementById("statusText");
+      const stageLabel = document.getElementById("stageLabel");
+      const metaTitle = document.getElementById("metaTitle");
+      const metaBody = document.getElementById("metaBody");
+      const presetDesc = document.getElementById("presetDesc");
+      const stateLine = document.getElementById("stateLine");
+      const modelShell = document.getElementById("modelShell");
+
+      const modelMeta = {
+        banqiao: {
+          title: "板桥3D 模型",
+          body: "沙盘式村落视角，先看空间和路径，再切换视觉预设。",
+          stage: "板桥 3D 模型"
+        },
+        headdress: {
+          title: "畲族头饰 3D 模型",
+          body: "物件式展示视角，聚焦材质, 银饰, 织纹和轮廓。",
+          stage: "畲族头饰 3D 模型"
+        }
+      };
+
+      const presetMeta = {
+        halftone: "半调",
+        charcode: "字符编码",
+        "point-cloud": "数字点云",
+        "wireframe-scan": "线框扫描",
+        pixel: "像素化"
+      };
+
+      const presetCopy = {
+        halftone: "纸面颗粒和网点感",
+        charcode: "文字与网格化扫描感",
+        "point-cloud": "点阵采样与轻雾化",
+        "wireframe-scan": "蓝白线框和边界高亮",
+        pixel: "低分辨率颗粒重组"
+      };
+
+      const modelButtons = [...document.querySelectorAll("[data-model]")];
+      const presetButtons = [...document.querySelectorAll("[data-preset]")];
+
+      let activeModel = "banqiao";
+      let activePreset = "halftone";
+
+      function setStage(open) {
+        guide.classList.toggle("is-hidden", !open);
+        shell.classList.toggle("is-open", open);
+        statusText.textContent = open ? "当前模式: guide-shell" : "当前模式: video-intro";
+      }
+
+      function updateModel(model) {
+        activeModel = model;
+        modelButtons.forEach((button) => {
+          button.dataset.active = String(button.dataset.model === model);
+        });
+        const data = modelMeta[model];
+        metaTitle.textContent = data.title;
+        metaBody.textContent = data.body;
+        stageLabel.textContent = data.stage;
+        stateLine.textContent = `当前入口: ${data.title}。点击预设只切换材质和线稿表现，不改变当前模型。`;
+      }
+
+      function updatePreset(preset) {
+        activePreset = preset;
+        presetButtons.forEach((button) => {
+          button.dataset.active = String(button.dataset.preset === preset);
+        });
+        presetDesc.textContent = presetMeta[preset];
+        modelShell.dataset.preset = preset;
+        modelShell.style.setProperty("--preset-name", preset);
+      }
+
+      beeButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        setStage(true);
+        guide.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      modelButtons.forEach((button) => {
+        button.addEventListener("click", () => updateModel(button.dataset.model));
+      });
+
+      presetButtons.forEach((button) => {
+        button.addEventListener("click", () => updatePreset(button.dataset.preset));
+      });
+
+      updateModel(activeModel);
+      updatePreset(activePreset);
+    </script>
+  </body>
+</html>

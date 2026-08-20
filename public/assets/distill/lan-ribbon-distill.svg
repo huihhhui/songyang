@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 928" role="img" aria-labelledby="title desc">
+  <title id="title">兰老师现场讲述：手势与布带蒸馏图</title>
+  <desc id="desc">以深红衣料块、蓝白织带线和手势弧线表现编织动作与口述关系。</desc>
+  <defs>
+    <filter id="rough" x="-12%" y="-18%" width="124%" height="136%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.014" numOctaves="2" seed="31" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
+    </filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="2" seed="23" result="g" />
+      <feColorMatrix in="g" type="saturate" values="0" />
+    </filter>
+  </defs>
+  <rect width="1400" height="928" fill="#e9e3d5" />
+  <rect width="1400" height="928" fill="#b8b0a0" opacity=".18" filter="url(#grain)" />
+  <path d="M0 120 C212 56 382 104 555 199 C710 284 867 260 1010 158 C1144 63 1270 67 1400 130 L1400 512 C1180 455 1004 473 839 546 C647 631 409 595 214 498 C128 455 60 446 0 466 Z" fill="#7f1f2b" opacity=".96" filter="url(#rough)" />
+  <path d="M172 536 C302 464 433 444 566 488 C681 527 755 603 864 609 C981 615 1093 553 1245 532" fill="none" stroke="#224b92" stroke-width="54" opacity=".95" filter="url(#rough)" />
+  <path d="M178 532 C317 468 430 456 561 496 C687 535 758 620 870 626 C990 632 1105 564 1247 543" fill="none" stroke="#f0eee2" stroke-width="17" opacity=".95" />
+  <path d="M189 566 C326 505 430 496 551 531 C680 568 752 654 875 660 C993 665 1100 598 1240 574" fill="none" stroke="#d7a426" stroke-width="11" opacity=".95" />
+  <g fill="none" stroke="#282821" stroke-width="6" opacity=".88" filter="url(#rough)">
+    <path d="M296 388 C392 304 514 302 598 369" />
+    <path d="M450 333 C517 280 608 286 667 338" />
+    <path d="M771 337 C860 283 974 312 1038 392" />
+  </g>
+  <g fill="#282821" font-family="Courier New, monospace" font-size="18" letter-spacing="3">
+    <text x="92" y="104">BANQIAO / ORAL ACCOUNT</text>
+    <text x="92" y="874">HAND - RIBBON - MEMORY</text>
+    <text x="1110" y="104">NO. BQ-02</text>
+  </g>
+  <g stroke="#9e3b28" stroke-width="4" opacity=".9">
+    <line x1="102" y1="128" x2="192" y2="128" />
+    <line x1="102" y1="128" x2="102" y2="218" />
+  </g>
+</svg>

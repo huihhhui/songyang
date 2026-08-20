@@ -1,0 +1,1462 @@
+.toushi-page {
+  min-height: 100dvh;
+  padding: 22px;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(58, 204, 255, 0.14), transparent 26%),
+    radial-gradient(circle at 88% 2%, rgba(255, 201, 108, 0.12), transparent 22%),
+    linear-gradient(180deg, #0a0d12 0%, #0d1117 36%, #0a0c10 100%);
+  color: #edf2f8;
+}
+
+.toushi-shell {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.toushi-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.toushi-header__copy {
+  max-width: 56rem;
+}
+
+.toushi-eyebrow,
+.toushi-panel__label {
+  margin: 0 0 10px;
+  color: #64d9ff;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.toushi-header h1 {
+  margin: 0;
+  font-size: clamp(2.3rem, 4vw, 4.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.toushi-lede {
+  max-width: 56ch;
+  margin: 14px 0 0;
+  color: rgba(237, 242, 248, 0.76);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.toushi-header__meta {
+  display: grid;
+  gap: 8px;
+  min-width: 220px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(237, 242, 248, 0.72);
+  font-size: 12px;
+}
+
+.toushi-layout {
+  display: grid;
+  grid-template-columns: 312px minmax(0, 1fr) 316px;
+  gap: 16px;
+  padding-top: 18px;
+}
+
+.toushi-panel {
+  display: grid;
+  gap: 16px;
+}
+
+.toushi-panel__section {
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015)),
+    rgba(18, 21, 28, 0.84);
+  backdrop-filter: blur(12px);
+}
+
+.toushi-chip-list,
+.toushi-control-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.toushi-chip {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  padding: 13px 14px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(28, 33, 42, 0.98), rgba(17, 20, 27, 0.96));
+  color: #eef4fb;
+  text-align: left;
+  cursor: pointer;
+}
+
+.toushi-chip strong {
+  font-size: 15px;
+}
+
+.toushi-chip span,
+.toushi-control span,
+.toushi-readout p,
+.toushi-readout dd,
+.toushi-notes li {
+  color: rgba(237, 242, 248, 0.7);
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+
+.toushi-chip.is-active {
+  border-color: rgba(100, 217, 255, 0.9);
+  background:
+    linear-gradient(180deg, rgba(22, 45, 58, 0.98), rgba(12, 16, 22, 0.98));
+  box-shadow: 0 0 0 1px rgba(100, 217, 255, 0.14) inset;
+}
+
+.toushi-chip.is-active strong,
+.toushi-chip.is-active span {
+  color: #dff8ff;
+}
+
+.toushi-control {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.toushi-control--toggle {
+  grid-template-columns: 1fr auto;
+}
+
+.toushi-control input[type='range'] {
+  width: 100%;
+  accent-color: #5fd4ff;
+}
+
+.toushi-control select,
+.toushi-control input[type='checkbox'] {
+  accent-color: #5fd4ff;
+}
+
+.toushi-control select {
+  min-width: 92px;
+  padding: 7px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: #232731;
+  color: #edf2f8;
+}
+
+.toushi-control output {
+  min-width: 52px;
+  color: #61d2ff;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.toushi-stage-shell {
+  position: relative;
+  min-height: 760px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(98, 210, 255, 0.13), transparent 22%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.012)),
+    #0b0f15;
+  box-shadow:
+    0 18px 80px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.toushi-stage-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.55) 32%, rgba(0, 0, 0, 0.2));
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.toushi-stage-shell.is-halftone::before {
+  opacity: 0.24;
+}
+
+.toushi-stage-shell__topline,
+.toushi-stage-shell__bottom,
+.toushi-stage-shell__topline strong,
+.toushi-stage-shell__topline span,
+.toushi-stage-shell__topmeta,
+.toushi-stage-shell__topmeta span {
+  position: relative;
+  z-index: 4;
+}
+
+.toushi-stage-shell__topline {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 16px 0;
+}
+
+.toushi-stage-shell__topline strong {
+  display: block;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+}
+
+.toushi-stage-shell__topline span {
+  display: block;
+  margin-top: 4px;
+  color: rgba(237, 242, 248, 0.66);
+  font-size: 12px;
+  line-height: 1.55;
+  max-width: 52ch;
+}
+
+.toushi-stage-shell__topmeta {
+  display: grid;
+  justify-items: end;
+  gap: 4px;
+  color: rgba(237, 242, 248, 0.64);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.toushi-canvas {
+  position: absolute !important;
+  inset: 0;
+  z-index: 1;
+}
+
+.toushi-stage {
+  position: absolute;
+  inset: 0 16px 56px;
+  z-index: 2;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.toushi-stage__grain,
+.toushi-stage__frame,
+.toushi-stage__overlay,
+.toushi-ascii-host {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.toushi-ascii-host {
+  z-index: 3;
+  overflow: hidden;
+  border-radius: 18px;
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+
+.toushi-stage-shell--charcode .toushi-ascii-host {
+  opacity: 1;
+}
+
+.toushi-ascii-host table,
+.toushi-ascii-host td {
+  color: #dff4ff !important;
+  background: transparent !important;
+  text-shadow: none !important;
+  -webkit-font-smoothing: none;
+  text-rendering: geometricPrecision;
+}
+
+.toushi-stage--charcode .toushi-canvas {
+  opacity: 0;
+}
+
+.toushi-stage--charcode > canvas {
+  opacity: 0;
+}
+
+.toushi-stage-shell--charcode .toushi-stage__overlay--content {
+  opacity: 0;
+}
+
+.toushi-stage-shell--charcode .toushi-ascii-host {
+  mix-blend-mode: normal;
+  background: #050b12;
+}
+
+.toushi-stage-shell--prototype .toushi-stage__grain,
+.toushi-stage-shell--prototype .toushi-stage__overlay {
+  opacity: 0;
+}
+
+.toushi-ascii-host pre,
+.toushi-ascii-host table {
+  margin: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  color: #dff4ff !important;
+  font-family: 'Courier New', monospace !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  filter: contrast(1.18);
+}
+
+.toushi-stage__grain {
+  background:
+    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px),
+    radial-gradient(circle at 60% 70%, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px),
+    radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px);
+  background-size: 3px 3px, 4px 4px, 5px 5px;
+  opacity: 0.42;
+  mix-blend-mode: screen;
+}
+
+.toushi-stage__frame {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  inset: 12px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+.toushi-stage__overlay--scan {
+  opacity: 0.14;
+  background:
+    repeating-linear-gradient(180deg, rgba(106, 213, 255, 0.18) 0 1px, transparent 1px 16px),
+    linear-gradient(180deg, transparent 0%, rgba(106, 213, 255, 0.08) 50%, transparent 100%);
+  mix-blend-mode: screen;
+  animation: scan-flow 4.6s linear infinite;
+}
+
+.toushi-stage__overlay--content {
+  background:
+    radial-gradient(circle at 50% 34%, rgba(255, 225, 164, 0.1), transparent 18%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 25%, rgba(255, 255, 255, 0.01));
+  opacity: 0.92;
+}
+
+.toushi-stage-shell--halftone.is-halftone .toushi-stage__overlay--content {
+  background: none;
+  opacity: 0;
+}
+
+.toushi-stage-shell--halftone.is-halftone .toushi-stage__grain {
+  opacity: 0.32;
+}
+
+.toushi-stage-shell--halftone.is-halftone .toushi-stage__overlay--scan {
+  background: none;
+  opacity: 0;
+  mix-blend-mode: screen;
+}
+
+.toushi-stage-shell--halftone.is-halftone[data-shape='Disc'] .toushi-stage__overlay--content {
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.16) 1.2px, transparent 2.2px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.08) 1.1px, transparent 3.2px);
+}
+
+.toushi-stage-shell--halftone.is-halftone[data-shape='Square'] .toushi-stage__overlay--content {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.14) 0 0),
+    linear-gradient(rgba(255, 255, 255, 0.08) 0 0);
+  background-size: var(--dot-size) var(--dot-size), calc(var(--dot-size) * 0.72) calc(var(--dot-size) * 0.72);
+  background-position: 0 0, 8px 8px;
+  border-radius: 2px;
+}
+
+.toushi-stage-shell--charcode .toushi-stage__overlay--content {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(100, 217, 255, 0.1) 0 1px, transparent 1px var(--glyph-size)),
+    repeating-linear-gradient(180deg, rgba(100, 217, 255, 0.08) 0 1px, transparent 1px var(--glyph-size));
+  background-size: var(--glyph-size) var(--glyph-size), var(--glyph-size) var(--glyph-size);
+  opacity: 0;
+  mix-blend-mode: screen;
+}
+
+.toushi-stage-shell--charcode .toushi-stage__overlay--scan {
+  opacity: calc(0.16 + var(--glyph-scan) * 0.14);
+}
+
+.toushi-stage-shell--point-cloud .toushi-stage__overlay--content {
+  background:
+    radial-gradient(circle, rgba(255, 214, 145, 0.18) 0 1px, transparent 1.8px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.08) 0 1px, transparent 2.8px);
+  background-size: 22px 22px, 34px 34px;
+  opacity: var(--cloud-opacity);
+  mix-blend-mode: screen;
+}
+
+.toushi-stage-shell--point-cloud .toushi-stage__grain {
+  opacity: 0.24;
+}
+
+.toushi-stage-shell--wireframe-scan .toushi-stage__overlay--content {
+  background:
+    linear-gradient(115deg, color-mix(in srgb, var(--wire-c1) 34%, transparent), transparent 32%),
+    linear-gradient(245deg, color-mix(in srgb, var(--wire-c2) 28%, transparent), transparent 38%),
+    repeating-linear-gradient(180deg, color-mix(in srgb, var(--wire-c3) 24%, transparent) 0 var(--wire-thick), transparent var(--wire-thick) var(--wire-gap));
+  opacity: calc(0.32 + var(--glow-level) * 0.42);
+  mix-blend-mode: screen;
+  filter: blur(calc(var(--jitter-level) * 0.8px));
+}
+
+.toushi-stage-shell--wireframe-scan .toushi-stage__overlay--scan {
+  opacity: 0.22;
+  animation-duration: var(--scan-speed);
+}
+
+.toushi-stage-shell--pixel .toushi-stage__overlay--content {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--pixel-c1) 54%, transparent), transparent 48%),
+    linear-gradient(90deg, color-mix(in srgb, var(--pixel-c2) 38%, transparent), transparent 58%),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--pixel-c3) 44%, transparent) 0 2px, transparent 2px var(--pixel-size)),
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0 1px, transparent 1px var(--pixel-size));
+  opacity: calc(0.46 + var(--pixel-chroma) * 0.42);
+  mix-blend-mode: screen;
+  filter: saturate(1.45) contrast(1.12);
+}
+
+.toushi-stage-shell--pixel .toushi-stage__overlay--scan {
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--pixel-c2) 82%, transparent), transparent);
+  opacity: calc(0.22 + var(--pixel-chroma) * 0.28);
+}
+
+.toushi-model-list {
+  display: grid;
+  gap: 8px;
+}
+
+.toushi-model-button {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #edf2f8;
+  text-align: left;
+  cursor: pointer;
+}
+
+.toushi-model-button span {
+  color: rgba(237, 242, 248, 0.5);
+  font-size: 11px;
+}
+
+.toushi-model-button.is-active {
+  border-color: rgba(100, 217, 255, 0.72);
+  background: linear-gradient(120deg, rgba(36, 122, 153, 0.32), rgba(255, 255, 255, 0.04));
+  box-shadow: inset 3px 0 0 #65d9ff;
+}
+
+.toushi-stage-shell--pixel .toushi-stage__overlay--scan {
+  opacity: calc(0.14 + var(--pixel-smear) * 0.22);
+}
+
+.toushi-stage-shell__bottom {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 12px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: rgba(237, 242, 248, 0.64);
+  font-size: 12px;
+}
+
+.toushi-stage-shell__bottom span {
+  margin-left: auto;
+}
+
+.toushi-stage-shell__bottom,
+.toushi-stage-shell__topline,
+.toushi-stage-shell__topmeta {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+}
+
+.toushi-stage-shell .toushi-empty {
+  inset: 56px 16px 56px;
+  z-index: 6;
+  display: grid;
+  place-content: center;
+  gap: 12px;
+  padding: 20px;
+  border-radius: 18px;
+  background: rgba(8, 11, 15, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.toushi-empty--error {
+  gap: 18px;
+}
+
+.toushi-skeleton {
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.05));
+  background-size: 220% 100%;
+  animation: shimmer 1.35s linear infinite;
+}
+
+.toushi-skeleton--title {
+  width: 250px;
+  height: 24px;
+  justify-self: center;
+}
+
+.toushi-skeleton--line {
+  width: 360px;
+  height: 12px;
+}
+
+.toushi-skeleton--panel {
+  width: 420px;
+  height: 250px;
+  border-radius: 24px;
+}
+
+.toushi-action {
+  justify-self: center;
+  padding: 10px 14px;
+  border: 1px solid rgba(100, 217, 255, 0.28);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #f1d892, #dfbd58);
+  color: #17130a;
+  font-weight: 700;
+}
+
+.toushi-action--ghost {
+  background: rgba(255, 255, 255, 0.02);
+  color: #eef4fb;
+}
+
+.toushi-chain {
+  display: grid;
+  gap: 8px;
+}
+
+.toushi-chain span {
+  display: flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(237, 242, 248, 0.75);
+  font-size: 12px;
+}
+
+.toushi-chain .is-live {
+  border-color: rgba(100, 217, 255, 0.7);
+  background: rgba(34, 77, 96, 0.46);
+  color: #e6f9ff;
+}
+
+.toushi-readout {
+  display: grid;
+  gap: 10px;
+}
+
+.toushi-readout strong {
+  font-size: 16px;
+  color: #eaf7ff;
+}
+
+.toushi-readout p {
+  margin: 0;
+}
+
+.toushi-readout dl {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.toushi-readout dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.toushi-readout dt {
+  color: rgba(237, 242, 248, 0.52);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.toushi-readout dd {
+  margin: 0;
+  color: #dff6ff;
+}
+
+.toushi-notes {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.toushi-notes li + li {
+  margin-top: 8px;
+}
+
+.toushi-stage-shell,
+.toushi-panel__section,
+.toushi-chip,
+.toushi-control,
+.toushi-header__meta,
+.toushi-action {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 220% 0;
+  }
+}
+
+@keyframes scan-flow {
+  0% {
+    transform: translateY(-14%);
+  }
+  100% {
+    transform: translateY(14%);
+  }
+}
+
+@media (max-width: 1160px) {
+  .toushi-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .toushi-stage-shell {
+    min-height: 680px;
+  }
+}
+
+@media (max-width: 780px) {
+  .toushi-page {
+    padding: 14px;
+  }
+
+  .toushi-header {
+    grid-template-columns: 1fr;
+    display: grid;
+    align-items: start;
+  }
+
+  .toushi-stage-shell {
+    min-height: 560px;
+  }
+
+  .toushi-control {
+    grid-template-columns: 1fr;
+  }
+
+  .toushi-control--toggle {
+    grid-template-columns: 1fr auto;
+  }
+
+  .toushi-stage-shell__topline {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .toushi-stage-shell__topmeta {
+    justify-items: start;
+  }
+}
+
+/* Approved UI direction: paper specimen board with a bottom preset rail. */
+.toushi-page {
+  padding: clamp(18px, 3vw, 42px);
+  background:
+    radial-gradient(circle at 14% 22%, rgba(112, 91, 57, .08) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 76% 68%, rgba(112, 91, 57, .055) 0 1px, transparent 1.5px),
+    #eee3cc !important;
+  background-color: #eee3cc !important;
+  background-size: 5px 5px, 7px 7px, auto;
+  color: #35352d;
+}
+.toushi-header { border-bottom-color: #b6a88f; }
+.toushi-header h1 { max-width: 650px; font-size: clamp(2.2rem, 4.5vw, 4.8rem); }
+.toushi-lede { color: #766c5b; }
+.toushi-header__meta { border-left-color: #8d382b; background: transparent; color: #766c5b; }
+.toushi-layout { grid-template-columns: 250px minmax(0, 1fr) 238px; gap: clamp(18px, 2.4vw, 34px); }
+.toushi-panel__section { border-top-color: #b7a98f; }
+.toushi-panel__section:first-child { border-top-color: #35352d; }
+.toushi-panel--left .toushi-panel__section:nth-child(2) { display: none; }
+.toushi-panel--left .toushi-model-button { min-height: 78px; }
+.toushi-stage-shell { min-height: 700px; border: 1px solid #35352d; background: #171b17; box-shadow: 8px 8px 0 rgba(83, 68, 48, .16); }
+.toushi-stage-shell__topline { padding: 18px 18px 0; }
+.toushi-stage-shell__topline strong { color: #eee3cc; }
+.toushi-stage-shell__topline span, .toushi-stage-shell__topmeta, .toushi-stage-shell__bottom { color: rgba(238, 227, 204, .72); }
+.toushi-preset-rail {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 18px 0 0 284px;
+  border-top: 1px solid #b7a98f;
+  border-bottom: 1px solid #b7a98f;
+  background: rgba(249, 242, 222, .72);
+}
+.toushi-preset-rail__item {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 5px;
+  min-height: 92px;
+  padding: 15px 8px 12px;
+  border: 0;
+  border-right: 1px solid #c8bca5;
+  background: transparent;
+  color: #35352d;
+  cursor: pointer;
+}
+.toushi-preset-rail__item:last-child { border-right: 0; }
+.toushi-preset-rail__item:hover,
+.toushi-preset-rail__item:focus-visible { background: rgba(228, 203, 189, .44); }
+.toushi-preset-rail__item.is-active { background: #e4cbbd; box-shadow: inset 0 -3px 0 #8d382b; }
+.toushi-preset-rail__item strong { font-family: 'Huiwen Ming', 'Microsoft YaHei', sans-serif; font-size: 18px; font-weight: 500; }
+.toushi-preset-rail__item small { color: #766c5b; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 10px; }
+.toushi-preset-rail__mark { width: 24px; height: 24px; border: 2px solid #35352d; }
+.toushi-preset-rail__mark--halftone { border-radius: 50%; background: radial-gradient(circle, #35352d 0 2px, transparent 2.5px); background-size: 7px 7px; }
+.toushi-preset-rail__mark--charcode { background: linear-gradient(90deg, transparent 42%, #35352d 42% 58%, transparent 58%), linear-gradient(0deg, transparent 42%, #35352d 42% 58%, transparent 58%); background-size: 9px 9px; }
+.toushi-preset-rail__mark--point-cloud { border: 0; background: radial-gradient(circle, #8d382b 0 2px, transparent 2.5px); background-size: 9px 9px; }
+.toushi-preset-rail__mark--wireframe-scan { transform: rotate(45deg); }
+.toushi-preset-rail__mark--pixel { background: repeating-linear-gradient(90deg, #35352d 0 4px, transparent 4px 8px), repeating-linear-gradient(0deg, #35352d 0 4px, transparent 4px 8px); }
+.toushi-readout { padding-left: 14px; border-left: 2px solid #8d382b; }
+
+@media (max-width: 1160px) {
+  .toushi-preset-rail { margin-left: 0; }
+}
+@media (max-width: 780px) {
+  .toushi-preset-rail { grid-template-columns: repeat(5, minmax(100px, 1fr)); overflow-x: auto; }
+  .toushi-preset-rail__item { min-width: 100px; }
+}
+
+/* Palette lock: warm paper, ink, indigo and one dark-red mark. */
+.toushi-page {
+  background:
+    radial-gradient(circle at 14% 22%, rgba(112, 91, 57, .08) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 76% 68%, rgba(112, 91, 57, .055) 0 1px, transparent 1.5px),
+    #eee3cc;
+  color: #35352d;
+}
+.toushi-page::after { background: linear-gradient(105deg, transparent 0 38%, rgba(141, 56, 43, .12) 38.1% 38.25%, transparent 38.35% 100%); }
+.toushi-header h1 { color: #35352d; }
+.toushi-header__meta { border-left-color: #8d382b; color: #766c5b; }
+.toushi-panel__section { border-top-color: #b7a98f; }
+.toushi-panel__section:first-child { border-top-color: #35352d; }
+.toushi-panel__label, .toushi-eyebrow { color: #8d382b; }
+.toushi-panel--left .toushi-model-button { background: rgba(249, 242, 222, .84); border-color: #c4b69c; color: #35352d; }
+.toushi-panel--left .toushi-model-button.is-active { background: #e4cbbd; border-color: #8d382b; box-shadow: inset 4px 0 0 #8d382b; }
+.toushi-control { background: rgba(249, 242, 222, .55); border-color: #c4b69c; }
+.toushi-control input[type='range'], .toushi-control select { accent-color: #8d382b; }
+.toushi-control select { border-color: #c4b69c; background: #f8f1de; color: #35352d; }
+.toushi-control output { color: #8d382b; }
+.toushi-stage-shell { background: #171b17; border-color: #35352d; }
+.toushi-stage-shell__topline strong, .toushi-stage-shell__topline span, .toushi-stage-shell__topmeta, .toushi-stage-shell__bottom { color: #eee3cc; }
+
+/* Imagegen / ke reference language: parchment field, cut-paper evidence, ink object. */
+.toushi-page {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 14% 22%, rgba(112, 91, 57, 0.08) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 76% 68%, rgba(112, 91, 57, 0.055) 0 1px, transparent 1.5px),
+    #eee3cc;
+  background-size: 5px 5px, 7px 7px, auto;
+  color: #35352d;
+}
+
+.toushi-page::before {
+  position: fixed;
+  inset: -4% -3% 0 55%;
+  z-index: 1 !important;
+  content: '';
+  background: url('/assets/imagegen/ke/bq-01-earthen-house-v13.png') 100% 0 / min(760px, 58vw) auto no-repeat;
+  opacity: 0.12;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.toushi-page::after {
+  position: fixed;
+  inset: 0;
+  z-index: 1 !important;
+  content: '';
+  background:
+    linear-gradient(90deg, transparent 0 9%, rgba(53, 53, 45, 0.07) 9.1%, transparent 9.2% 100%),
+    linear-gradient(180deg, transparent 0 78%, rgba(53, 53, 45, 0.06) 78.1%, transparent 78.2% 100%);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.toushi-header h1 {
+  color: #35352d;
+  text-shadow: 1px 1px 0 rgba(255, 250, 235, 0.55);
+}
+
+.toushi-shell {
+  position: relative;
+  z-index: 2;
+}
+
+.toushi-eyebrow,
+.toushi-panel__label {
+  color: #8d382b;
+}
+
+.toushi-header__meta {
+  border-left-color: #8d382b;
+  color: #766c5b;
+}
+
+.toushi-panel__section {
+  border-top-color: #b7a98f;
+}
+
+.toushi-panel__section:first-child {
+  border-top-color: #35352d;
+}
+
+.toushi-chip,
+.toushi-model-button,
+.toushi-control {
+  border-color: #c4b69c;
+  background: rgba(248, 241, 222, 0.68);
+}
+
+.toushi-chip:hover,
+.toushi-model-button:hover {
+  border-color: #8d382b;
+  background: rgba(255, 247, 228, 0.9);
+}
+
+.toushi-chip.is-active,
+.toushi-model-button.is-active {
+  border-color: #8d382b;
+  background: #e4cbbd;
+  box-shadow: inset 4px 0 0 #8d382b;
+}
+
+.toushi-control input[type='range'] {
+  accent-color: #8d382b;
+}
+
+.toushi-control select {
+  border-color: #c4b69c;
+  background: #f8f1de;
+  color: #35352d;
+}
+
+.toushi-control output {
+  color: #8d382b;
+}
+
+.toushi-stage-shell {
+  border-color: #35352d;
+  background:
+    linear-gradient(135deg, rgba(238, 227, 204, 0.16), transparent 34%),
+    #171b17;
+  box-shadow: 10px 10px 0 rgba(80, 64, 44, 0.16);
+}
+
+.toushi-stage-shell::before {
+  background:
+    radial-gradient(circle, rgba(238, 227, 204, 0.14) 0 1px, transparent 1.4px),
+    linear-gradient(90deg, rgba(238, 227, 204, 0.06) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(238, 227, 204, 0.06) 1px, transparent 1px);
+  background-size: 4px 4px, 42px 42px, 42px 42px;
+  opacity: 0.34;
+}
+
+.toushi-stage-shell__topline span,
+.toushi-stage-shell__topmeta,
+.toushi-stage-shell__bottom {
+  color: rgba(238, 227, 204, 0.72);
+}
+
+.toushi-stage__frame {
+  border-color: rgba(238, 227, 204, 0.4);
+}
+
+.toushi-action {
+  background: #8d382b;
+  color: #fff6df;
+}
+
+.toushi-action--ghost {
+  border-color: rgba(238, 227, 204, 0.5);
+  color: #eee3cc;
+}
+
+.toushi-chain span {
+  border-bottom-color: #b7a98f;
+  color: #766c5b;
+}
+
+.toushi-chain .is-live {
+  border-bottom-color: #8d382b;
+  color: #8d382b;
+}
+
+.toushi-readout strong {
+  color: #35352d;
+}
+
+.toushi-readout dl div {
+  border-top-color: #b7a98f;
+}
+
+.toushi-readout dt,
+.toushi-readout p,
+.toushi-notes li {
+  color: #766c5b;
+}
+
+.toushi-readout dd {
+  color: #35352d;
+}
+
+@media (max-width: 780px) {
+  .toushi-page::before {
+    inset: 0 -18% 0 20%;
+    background-size: 760px auto;
+    opacity: 0.075;
+  }
+}
+
+/* Recomposition from the ke collage references. The specimen board is a paper object, not a dark tech dashboard. */
+.toushi-page {
+  background-color: #eee3cc;
+}
+
+.toushi-page::before {
+  inset: -8% -2% -4% 52%;
+  background-position: 100% 42%;
+  background-size: min(920px, 68vw) auto;
+  opacity: 0.22;
+  filter: sepia(0.16) saturate(0.82) contrast(0.92);
+}
+
+.toushi-page::after {
+  background:
+    radial-gradient(circle, rgba(57, 52, 43, 0.16) 0 1px, transparent 1.4px),
+    linear-gradient(105deg, transparent 0 38%, rgba(141, 56, 43, 0.12) 38.1% 38.25%, transparent 38.35% 100%);
+  background-size: 5px 5px, auto;
+  opacity: 0.3;
+}
+
+.toushi-layout {
+  grid-template-columns: 260px minmax(0, 1fr) 250px;
+  gap: 28px;
+}
+
+.toushi-panel__section {
+  padding: 20px 0 22px;
+}
+
+.toushi-chip,
+.toushi-model-button {
+  position: relative;
+  overflow: hidden;
+  min-height: 58px;
+  padding: 13px 14px 13px 18px;
+  background: rgba(249, 242, 222, 0.84);
+  box-shadow: 3px 3px 0 rgba(83, 68, 48, 0.12);
+  clip-path: polygon(0.8% 2%, 99.2% 0, 100% 96%, 1.5% 100%, 0 48%);
+}
+
+.toushi-chip::before,
+.toushi-model-button::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  content: '';
+  background: #b9a27a;
+}
+
+.toushi-chip.is-active::before,
+.toushi-model-button.is-active::before {
+  background: #8d382b;
+}
+
+.toushi-chip.is-active,
+.toushi-model-button.is-active {
+  box-shadow: 5px 5px 0 rgba(83, 68, 48, 0.16);
+}
+
+.toushi-control {
+  min-height: 42px;
+  background: rgba(249, 242, 222, 0.55);
+}
+
+.toushi-stage-shell {
+  min-height: 730px;
+  overflow: hidden;
+  border: 0;
+  background: #e8dcc2;
+  box-shadow: 9px 10px 0 rgba(83, 68, 48, 0.18);
+  clip-path: polygon(0.6% 0.5%, 99.4% 0, 100% 98.8%, 98.7% 100%, 0 99.5%);
+}
+
+.toushi-stage-shell::before {
+  background:
+    radial-gradient(circle, rgba(61, 55, 45, 0.24) 0 1px, transparent 1.35px),
+    linear-gradient(90deg, rgba(61, 55, 45, 0.08) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(61, 55, 45, 0.08) 1px, transparent 1px);
+  background-size: 5px 5px, 48px 48px, 48px 48px;
+  opacity: 0.38;
+}
+
+.toushi-stage-shell__topline strong,
+.toushi-stage-shell__topline span,
+.toushi-stage-shell__topmeta,
+.toushi-stage-shell__topmeta span,
+.toushi-stage-shell__bottom {
+  color: #3d372d;
+  text-shadow: none;
+}
+
+.toushi-stage-shell__topline strong {
+  font-family: 'Huiwen Ming', 'Microsoft YaHei', sans-serif;
+}
+
+.toushi-stage-shell__topline span {
+  max-width: 44ch;
+}
+
+.toushi-stage {
+  inset: 0 18px 56px;
+  overflow: hidden;
+}
+
+.toushi-stage__frame {
+  border: 1px solid rgba(61, 55, 45, 0.34);
+  box-shadow: inset 0 0 0 7px rgba(249, 242, 222, 0.18);
+}
+
+.toushi-stage__grain {
+  background:
+    radial-gradient(circle, rgba(61, 55, 45, 0.18) 0 1px, transparent 1.4px),
+    linear-gradient(105deg, transparent 0 36%, rgba(141, 56, 43, 0.18) 36.1% 36.22%, transparent 36.3% 100%);
+  background-size: 5px 5px, auto;
+  mix-blend-mode: multiply;
+  opacity: 0.34;
+}
+
+.toushi-stage-shell--prototype .toushi-stage__grain,
+.toushi-stage-shell--charcode .toushi-stage__grain {
+  opacity: 0.22;
+}
+
+.toushi-stage__overlay--content,
+.toushi-stage__overlay--scan {
+  mix-blend-mode: multiply;
+}
+
+.toushi-stage__overlay--scan {
+  background:
+    repeating-linear-gradient(180deg, rgba(141, 56, 43, 0.18) 0 1px, transparent 1px 18px),
+    linear-gradient(180deg, transparent, rgba(141, 56, 43, 0.12), transparent);
+}
+
+.toushi-stage-shell--charcode .toushi-ascii-host {
+  background: #eee3cc;
+  mix-blend-mode: normal;
+}
+
+.toushi-stage-shell--charcode .toushi-ascii-host > div {
+  mix-blend-mode: multiply !important;
+}
+
+.toushi-ascii-host table,
+.toushi-ascii-host td,
+.toushi-ascii-host pre {
+  color: #3d372d !important;
+}
+
+.toushi-stage-shell--charcode .toushi-stage__overlay--scan {
+  opacity: calc(0.08 + var(--glyph-scan) * 0.08);
+}
+
+.toushi-stage-shell--point-cloud .toushi-stage__overlay--content {
+  background:
+    radial-gradient(circle, rgba(36, 51, 74, 0.42) 0 1.2px, transparent 1.9px),
+    radial-gradient(circle, rgba(55, 70, 96, 0.26) 0 1px, transparent 2.8px);
+  mix-blend-mode: multiply;
+  opacity: .86;
+}
+
+.toushi-stage-shell--wireframe-scan .toushi-stage__overlay--content {
+  background:
+    linear-gradient(115deg, rgba(141, 56, 43, 0.18), transparent 34%),
+    linear-gradient(245deg, rgba(61, 55, 45, 0.16), transparent 42%),
+    repeating-linear-gradient(180deg, rgba(61, 55, 45, 0.16) 0 var(--wire-thick), transparent var(--wire-thick) var(--wire-gap));
+  mix-blend-mode: multiply;
+}
+
+.toushi-stage-shell--pixel .toushi-stage__overlay--content {
+  background:
+    linear-gradient(180deg, rgba(141, 56, 43, 0.18), transparent 48%),
+    repeating-linear-gradient(90deg, rgba(61, 55, 45, 0.2) 0 2px, transparent 2px var(--pixel-size)),
+    repeating-linear-gradient(180deg, rgba(185, 162, 122, 0.32) 0 2px, transparent 2px var(--pixel-size));
+  mix-blend-mode: multiply;
+  filter: saturate(0.8);
+}
+
+.toushi-stage-shell--pixel .toushi-stage__overlay--scan {
+  background: linear-gradient(90deg, transparent, rgba(141, 56, 43, 0.3), transparent);
+  mix-blend-mode: multiply;
+}
+
+.toushi-chain span {
+  position: relative;
+  padding-left: 14px;
+}
+
+.toushi-chain span::before {
+  position: absolute;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border: 1px solid currentColor;
+  content: '';
+  transform: rotate(45deg);
+}
+
+@media (max-width: 780px) {
+  .toushi-layout {
+    gap: 18px;
+  }
+
+  .toushi-stage-shell {
+    min-height: 620px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toushi-skeleton,
+  .toushi-stage__overlay--scan {
+    animation: none !important;
+  }
+}
+
+/* Field specimen archive skin: paper index outside, dark observation window inside. */
+.toushi-page {
+  min-height: 100dvh;
+  padding: clamp(18px, 3vw, 42px);
+  background:
+    linear-gradient(90deg, rgba(32, 37, 34, 0.035) 1px, transparent 1px),
+    #e9ece8;
+  background-size: 28px 28px;
+  color: #202522;
+}
+
+.toushi-shell {
+  max-width: 1480px;
+}
+
+.toushi-header {
+  align-items: end;
+  padding: 0 0 22px;
+  border-bottom: 1px solid #b6c0b9;
+}
+
+.toushi-eyebrow,
+.toushi-panel__label {
+  color: #b14832;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+}
+
+.toushi-header h1 {
+  max-width: 720px;
+  color: #202522;
+  font-family: 'Huiwen Ming', 'Microsoft YaHei', sans-serif;
+  font-size: clamp(2.4rem, 5.2vw, 5.6rem);
+  font-weight: 650;
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+}
+
+.toushi-lede {
+  max-width: 52ch;
+  color: #66706a;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.toushi-header__meta {
+  min-width: 250px;
+  padding: 12px 0 0 16px;
+  border: 0;
+  border-left: 2px solid #b14832;
+  border-radius: 0;
+  background: transparent;
+  color: #66706a;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.toushi-layout {
+  grid-template-columns: 286px minmax(0, 1fr) 270px;
+  gap: 22px;
+  padding-top: 24px;
+}
+
+.toushi-panel {
+  gap: 22px;
+}
+
+.toushi-panel__section {
+  padding: 18px 0;
+  border: 0;
+  border-top: 1px solid #b6c0b9;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+.toushi-panel__section:first-child {
+  border-top: 2px solid #202522;
+}
+
+.toushi-chip,
+.toushi-model-button {
+  border: 1px solid #b6c0b9;
+  border-radius: 0;
+  background: #f3f4ef;
+  color: #202522;
+  box-shadow: none;
+}
+
+.toushi-chip strong,
+.toushi-model-button strong {
+  font-weight: 650;
+}
+
+.toushi-chip span,
+.toushi-model-button span,
+.toushi-control span,
+.toushi-readout p,
+.toushi-readout dd,
+.toushi-notes li {
+  color: #66706a;
+}
+
+.toushi-chip.is-active,
+.toushi-model-button.is-active {
+  border-color: #b14832;
+  background: #e9d6cc;
+  box-shadow: inset 4px 0 0 #b14832;
+}
+
+.toushi-chip.is-active strong,
+.toushi-chip.is-active span,
+.toushi-model-button.is-active strong,
+.toushi-model-button.is-active span {
+  color: #202522;
+}
+
+.toushi-control {
+  border-radius: 0;
+  background: rgba(243, 244, 239, 0.72);
+}
+
+.toushi-control input[type='range'] {
+  accent-color: #b14832;
+}
+
+.toushi-control select {
+  border-color: #b6c0b9;
+  border-radius: 0;
+  background: #f3f4ef;
+  color: #202522;
+}
+
+.toushi-control output {
+  color: #b14832;
+}
+
+.toushi-stage-shell {
+  min-height: 720px;
+  border: 1px solid #202522;
+  border-radius: 0;
+  background: #101512;
+  box-shadow: 8px 8px 0 rgba(32, 37, 34, 0.14);
+}
+
+.toushi-stage-shell::before {
+  opacity: 0.22;
+}
+
+.toushi-stage {
+  border-radius: 0;
+}
+
+.toushi-stage__frame {
+  border-color: rgba(233, 236, 232, 0.28);
+  border-radius: 0;
+}
+
+.toushi-stage-shell__topline {
+  padding: 18px 18px 0;
+}
+
+.toushi-stage-shell__topline strong {
+  font-family: 'Huiwen Ming', 'Microsoft YaHei', sans-serif;
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.toushi-stage-shell__topline span,
+.toushi-stage-shell__topmeta,
+.toushi-stage-shell__bottom {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.toushi-action {
+  border-radius: 0;
+  background: #b14832;
+  color: #f3f4ef;
+}
+
+.toushi-action--ghost {
+  border-color: rgba(233, 236, 232, 0.42);
+  background: transparent;
+  color: #e9ece8;
+}
+
+.toushi-chain span {
+  min-height: 34px;
+  border: 0;
+  border-bottom: 1px solid #b6c0b9;
+  border-radius: 0;
+  background: transparent;
+  color: #66706a;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.toushi-chain .is-live {
+  border-bottom-color: #b14832;
+  background: transparent;
+  color: #b14832;
+}
+
+.toushi-readout strong {
+  color: #202522;
+  font-family: 'Huiwen Ming', 'Microsoft YaHei', sans-serif;
+  font-size: 20px;
+}
+
+.toushi-readout dl div {
+  border-top-color: #b6c0b9;
+}
+
+.toushi-readout dt {
+  color: #66706a;
+}
+
+.toushi-readout dd {
+  color: #202522;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 11px;
+}
+
+.toushi-notes {
+  color: #66706a;
+}
+
+@media (max-width: 1160px) {
+  .toushi-layout {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 780px) {
+  .toushi-page {
+    padding: 16px;
+  }
+
+  .toushi-header__meta {
+    padding-left: 12px;
+  }
+
+  .toushi-stage-shell {
+    min-height: 600px;
+    box-shadow: 5px 5px 0 rgba(32, 37, 34, 0.14);
+  }
+}
+.toushi-page {
+  --console-ink: #f2c58a;
+  --console-orange: #e77d32;
+  background: #171513;
+  color: #ead7bc;
+}
+.toushi-shell { max-width: 1480px; background: #211d19; border: 1px solid #5f4b38; box-shadow: 0 24px 80px rgb(0 0 0 / .38), inset 0 0 0 10px #171513; }
+.toushi-header { border-bottom-color: #604b37; }
+.toushi-eyebrow, .toushi-panel__label { color: #d87532; letter-spacing: .18em; }
+.toushi-header h1 { color: #f1d6ad; }
+.toushi-header__meta, .toushi-lede { color: #a99279; }
+.toushi-panel { background: #29231e; border-color: #5b4735; box-shadow: inset 0 1px 0 rgb(255 215 160 / .08); }
+.toushi-model-button, .toushi-chip, .toushi-preset-rail__item, .toushi-action { border-color: #6b523b; background: #211c18; color: #e8cba5; }
+.toushi-model-button:hover, .toushi-model-button.is-active, .toushi-chip:hover, .toushi-chip.is-active, .toushi-preset-rail__item:hover, .toushi-preset-rail__item.is-active { border-color: var(--console-orange); background: #38251a; color: #ffd29b; }
+.toushi-stage-shell { position: relative; min-height: 620px; overflow: hidden; border: 18px solid #45382c; border-radius: 34px; background: #080909; box-shadow: inset 0 0 0 3px #17120f, inset 0 0 42px rgb(0 0 0 / .9), 0 12px 24px rgb(0 0 0 / .35); }
+.toushi-stage-shell::before { content: ''; position: absolute; inset: 8px; z-index: 1; border: 1px solid rgb(231 125 50 / .3); border-radius: 22px; box-shadow: inset 0 0 22px rgb(231 125 50 / .09); pointer-events: none; }
+.toushi-stage-shell::after { content: 'BANQIAO / OBSERVATION DEVICE'; position: absolute; left: 28px; bottom: 20px; z-index: 4; color: rgb(231 125 50 / .7); font: 9px/1 ui-monospace, SFMono-Regular, monospace; letter-spacing: .18em; pointer-events: none; }
+.toushi-stage-shell > canvas { filter: saturate(.82) contrast(1.08); }
+.toushi-stage-shell__topline { z-index: 5; color: var(--console-ink); }
+.toushi-stage-shell__topline span, .toushi-stage-shell__topmeta { color: rgb(242 197 138 / .62); }
+.toushi-crt-status { position: absolute; right: 30px; bottom: 18px; z-index: 5; display: flex; gap: 14px; color: rgb(242 197 138 / .68); font: 9px/1 ui-monospace, SFMono-Regular, monospace; letter-spacing: .1em; text-transform: uppercase; pointer-events: none; }
+.toushi-control--knob { grid-template-columns: 1fr auto; align-items: center; }
+.toushi-knob { position: relative; display: inline-grid; width: 48px; height: 48px; place-items: center; }
+.toushi-knob__face { position: absolute; inset: 4px; border: 2px solid #8a6746; border-radius: 50%; background: conic-gradient(from 225deg, var(--console-orange) 0 var(--knob-progress), #47382b var(--knob-progress) 75%, transparent 75% 100%), radial-gradient(circle at 35% 30%, #a37a52, #38291e 62%); box-shadow: inset 0 2px 3px rgb(255 220 170 / .25), 0 2px 6px rgb(0 0 0 / .5); pointer-events: none; }
+.toushi-knob__face i { position: absolute; top: 7px; left: calc(50% - 1px); width: 2px; height: 12px; background: #ffd09b; transform-origin: 1px 17px; transform: rotate(calc(-135deg + var(--knob-progress) * 2.7)); }
+.toushi-knob input { position: absolute; inset: -6px; z-index: 2; width: 60px; height: 60px; opacity: 0; cursor: ns-resize; transform: rotate(-90deg); }
+.toushi-control__readout { min-width: 42px; color: var(--console-orange); font: 11px/1 ui-monospace, SFMono-Regular, monospace; text-align: right; }
+.toushi-readout { background: #191613; border-color: #634932; color: #d9b98d; }
+.toushi-readout strong, .toushi-readout dd { color: var(--console-orange); }
+.toushi-chain span { border-color: #664a32; color: #b69b7b; }
+.toushi-chain span.is-live { border-color: var(--console-orange); color: #ffc184; box-shadow: 0 0 10px rgb(231 125 50 / .2); }
+.toushi-preset-rail { border-top-color: #604b37; }
+.toushi-preset-rail__item { background: #211c18; }
+.toushi-preset-rail__mark { filter: sepia(.65) saturate(1.45); }
+@media (max-width: 900px) { .toushi-stage-shell { min-height: 500px; border-width: 12px; border-radius: 22px; } .toushi-crt-status { right: 18px; bottom: 14px; gap: 8px; font-size: 8px; } }

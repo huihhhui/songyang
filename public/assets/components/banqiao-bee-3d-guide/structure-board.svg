@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="banqiao bee 3d guide structure board">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#10141a"/>
+      <stop offset="1" stop-color="#0b0d11"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a202a"/>
+      <stop offset="1" stop-color="#131821"/>
+    </linearGradient>
+    <style>
+      .t1{fill:#f5efe4;font:700 28px Arial, sans-serif}
+      .t2{fill:#d5c9b2;font:400 16px Arial, sans-serif}
+      .t3{fill:#e0b14f;font:700 16px Arial, sans-serif}
+      .t4{fill:#aeb7c5;font:400 14px Arial, sans-serif}
+      .stroke{stroke:#2c3441;stroke-width:2}
+      .accent{stroke:#e0b14f;stroke-width:3}
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <text x="60" y="76" class="t1">banqiao-bee-3d-guide 结构图</text>
+  <text x="60" y="108" class="t2">视频开场 -> 蜂入口 -> 3D 导览外壳 -> 双模型入口 -> 数字艺术预设</text>
+
+  <rect x="60" y="160" rx="22" ry="22" width="420" height="640" fill="url(#panel)" class="stroke"/>
+  <text x="92" y="208" class="t3">1. 开场层</text>
+  <rect x="96" y="240" rx="18" ry="18" width="348" height="360" fill="#11161d" class="stroke"/>
+  <rect x="220" y="350" rx="60" ry="60" width="100" height="100" fill="#e0b14f" opacity="0.22" class="accent"/>
+  <text x="122" y="644" class="t2">蜜蜂.mp4 全屏播放</text>
+  <text x="122" y="670" class="t4">唯一可点击对象是蜂形入口</text>
+  <text x="122" y="696" class="t4">点击后进入导览层</text>
+
+  <rect x="550" y="160" rx="22" ry="22" width="470" height="640" fill="url(#panel)" class="stroke"/>
+  <text x="584" y="208" class="t3">2. 导览外壳</text>
+  <rect x="590" y="244" rx="16" ry="16" width="396" height="122" fill="#0f141a" class="stroke"/>
+  <text x="614" y="284" class="t2">顶部状态条</text>
+  <text x="614" y="312" class="t4">当前模式, 说明, 返回状态</text>
+  <rect x="590" y="388" rx="16" ry="16" width="180" height="216" fill="#11161d" class="stroke"/>
+  <rect x="806" y="388" rx="16" ry="16" width="180" height="216" fill="#11161d" class="stroke"/>
+  <text x="616" y="426" class="t2">左侧入口</text>
+  <text x="616" y="452" class="t4">板桥3D 模型</text>
+  <text x="616" y="480" class="t4">畲族头饰 3D 模型</text>
+  <text x="832" y="426" class="t2">中央 3D 视窗</text>
+  <text x="832" y="452" class="t4">旋转, 缩放, 观察</text>
+  <text x="832" y="480" class="t4">模型与预设联动</text>
+  <rect x="590" y="628" rx="16" ry="16" width="396" height="96" fill="#0f141a" class="stroke"/>
+  <text x="614" y="668" class="t2">底部预设条</text>
+  <text x="614" y="696" class="t4">半调, 字符编码, 点云, 线框扫描, 像素化</text>
+
+  <rect x="1070" y="160" rx="22" ry="22" width="470" height="640" fill="url(#panel)" class="stroke"/>
+  <text x="1104" y="208" class="t3">3. 状态分流</text>
+  <rect x="1110" y="248" rx="18" ry="18" width="390" height="118" fill="#11161d" class="stroke"/>
+  <text x="1136" y="288" class="t2">Banqiao 3D 模型</text>
+  <text x="1136" y="318" class="t4">先看空间，再切换材质语言</text>
+  <rect x="1110" y="384" rx="18" ry="18" width="390" height="118" fill="#11161d" class="stroke"/>
+  <text x="1136" y="424" class="t2">畲族头饰 3D 模型</text>
+  <text x="1136" y="454" class="t4">先看物件，再切换数字艺术表现</text>
+  <rect x="1110" y="520" rx="18" ry="18" width="390" height="118" fill="#11161d" class="stroke"/>
+  <text x="1136" y="560" class="t2">预设切换</text>
+  <text x="1136" y="590" class="t4">只改视觉层，不改入口结构</text>
+  <rect x="1110" y="656" rx="18" ry="18" width="390" height="118" fill="#11161d" class="stroke"/>
+  <text x="1136" y="696" class="t2">交接</text>
+  <text x="1136" y="726" class="t4">完成后交给主对话整合进主流程</text>
+</svg>

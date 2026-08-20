@@ -1,0 +1,39 @@
+{
+  "id": "banqiao-weaving-transition",
+  "route": "/village/banqiao",
+  "entryState": "idle",
+  "exitState": "camera-shift",
+  "states": [
+    "idle",
+    "pick",
+    "weft",
+    "push",
+    "rebound",
+    "material-swap",
+    "camera-shift",
+    "complete"
+  ],
+  "assets": {
+    "background": "public/assets/imagegen/banqiao-assets/banqiao-weave-background-v1.png",
+    "interactive": [
+      "public/assets/imagegen/banqiao-assets/banqiao-bamboo-strip-v1-alpha-trim.png",
+      "public/assets/imagegen/banqiao-assets/banqiao-lifted-yarn-v1-alpha.png"
+    ],
+    "transition": [
+      "public/assets/imagegen/banqiao-assets/mid-lines-web.png",
+      "public/assets/imagegen/banqiao-assets/right-band-web.png",
+      "public/assets/imagegen/banqiao-assets/编织纸艺边框1.mp4"
+    ],
+    "nextScene": "public/assets/imagegen/ke/bq-02-lan-teacher-weaving.png"
+  },
+  "interaction": {
+    "pointerAxis": "vertical-then-horizontal",
+    "completionThreshold": 0.96,
+    "cameraDirection": "right",
+    "sceneDirection": "left"
+  },
+  "handoff": {
+    "nextRoute": "/village/banqiao",
+    "nextAnchor": "lan-teacher-weaving"
+  }
+}

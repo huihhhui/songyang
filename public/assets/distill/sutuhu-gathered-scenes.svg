@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1800" role="img" aria-labelledby="title desc">
+  <title id="title">SZ-02 诉土桌边：工作台、陶土、枯叶灯与陶土小猫</title>
+  <desc id="desc">以授权现场照片为锚点，纸面抽取工作台水平线、暖灯形状和陶土器物的关系。</desc>
+  <defs>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".7" numOctaves="2"/><feColorMatrix type="saturate" values="0"/></filter>
+    <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency=".02" numOctaves="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5"/></filter>
+    <clipPath id="photo"><path d="M105 190 Q120 160 154 174 L1070 142 Q1110 146 1098 190 L1068 1120 Q1060 1160 1020 1152 L126 1180 Q88 1170 97 1125 Z"/></clipPath>
+  </defs>
+  <rect width="1200" height="1800" fill="#e9e3d5"/>
+  <rect width="1200" height="1800" fill="#76634e" opacity=".11" filter="url(#grain)"/>
+  <g clip-path="url(#photo)">
+    <image href="/assets/images/songzhuang/sutuhu-worktable.jpg" x="70" y="120" width="1060" height="1060" preserveAspectRatio="xMidYMid slice"/>
+    <rect x="70" y="120" width="1060" height="1060" fill="#6d4b32" opacity=".18"/>
+  </g>
+  <path d="M110 1190 C270 1120 400 1165 548 1234 C710 1310 846 1278 1088 1165 L1088 1536 C850 1618 684 1596 510 1512 C370 1444 242 1442 110 1487 Z" fill="#282821" opacity=".92" filter="url(#rough)"/>
+  <path d="M130 1305 C302 1233 406 1264 552 1336 C710 1414 850 1397 1080 1283" fill="none" stroke="#d84b2f" stroke-width="32" opacity=".95" filter="url(#rough)"/>
+  <path d="M148 1310 C314 1250 418 1286 548 1350 C710 1430 862 1412 1062 1302" fill="none" stroke="#f5c65e" stroke-width="8" opacity=".9"/>
+  <path d="M220 1560 C390 1510 560 1544 738 1601 C872 1644 982 1636 1098 1590" fill="none" stroke="#6f6759" stroke-width="12" opacity=".8"/>
+  <g fill="#282821" font-family="Courier New, monospace" font-size="22" letter-spacing="4">
+    <text x="108" y="92">SONGZHUANG / SZ-02</text><text x="108" y="1715">TABLE / CLAY / PAUSE</text>
+  </g>
+  <path d="M86 151 Q110 130 142 144" fill="none" stroke="#cdbfae" stroke-width="18" opacity=".8"/>
+</svg>

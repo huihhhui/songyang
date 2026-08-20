@@ -1,0 +1,50 @@
+{
+  "yj-01-couple-tree": {
+    "state": "done",
+    "source": "D:\\codex_sy\\sucai\\28，27，50N 119，32，34E\\3.jpg",
+    "output": "D:\\codex_sy\\wutonger-sunyang\\output\\imagegen\\station-previews-v1\\yj-01-couple-tree.png",
+    "returncode": 0
+  },
+  "yj-02-door-tile-wall": {
+    "state": "done",
+    "source": "D:\\codex_sy\\sucai\\28，27，46N  119，32，35E\\5.jpg",
+    "output": "D:\\codex_sy\\wutonger-sunyang\\output\\imagegen\\station-previews-v1\\yj-02-door-tile-wall.png",
+    "returncode": 0
+  },
+  "sz-01-peach-stream": {
+    "state": "done",
+    "source": "D:\\codex_sy\\sucai\\28，27，5N 119，34，11E\\9.jpg",
+    "output": "D:\\codex_sy\\wutonger-sunyang\\output\\imagegen\\station-previews-v1\\sz-01-peach-stream.png",
+    "returncode": 0
+  },
+  "sz-02-sutuhu-worktable": {
+    "state": "done",
+    "source": "D:\\codex_sy\\sucai\\28，27，8N 119，34，13E\\3.jpg",
+    "output": "D:\\codex_sy\\wutonger-sunyang\\output\\imagegen\\station-previews-v1\\sz-02-sutuhu-worktable.png",
+    "returncode": 0
+  },
+  "sz-03-craft-witness": {
+    "state": "done",
+    "source": "D:\\codex_sy\\sucai\\28，27，8N 119，34，13E\\11.jpg",
+    "output": "D:\\codex_sy\\wutonger-sunyang\\output\\imagegen\\station-previews-v1\\sz-03-craft-witness.png",
+    "returncode": 0
+  },
+  "bq-01-beehive": {
+    "state": "done",
+    "source": "D:\\codex_sy\\sucai\\28，27，14N 119，39，21E\\13.jpg",
+    "output": "D:\\codex_sy\\wutonger-sunyang\\output\\imagegen\\station-previews-v1\\bq-01-beehive.png",
+    "returncode": 0
+  },
+  "bq-02-lan-teacher-weaving": {
+    "state": "done",
+    "source": "D:\\codex_sy\\sucai\\28，27，14N 119，39，21E\\17.jpg",
+    "output": "D:\\codex_sy\\wutonger-sunyang\\output\\imagegen\\station-previews-v1\\bq-02-lan-teacher-weaving.png",
+    "returncode": 0
+  },
+  "bq-03-bridge-house": {
+    "state": "done",
+    "source": "D:\\codex_sy\\sucai\\28，27，14N 119，39，21E\\9.jpg",
+    "output": "D:\\codex_sy\\wutonger-sunyang\\output\\imagegen\\station-previews-v1\\bq-03-bridge-house.png",
+    "returncode": 0
+  }
+}

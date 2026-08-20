@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 220" role="img" aria-label="bee to guide cue">
+  <defs>
+    <style>
+      .bg{fill:#11151b}
+      .line{stroke:#e0b14f;stroke-width:6;fill:none;stroke-linecap:round;stroke-dasharray:1 18}
+      .node{fill:#171c24;stroke:#2f3947;stroke-width:2}
+      .t1{fill:#f5efe4;font:700 22px Arial, sans-serif}
+      .t2{fill:#ccd5e3;font:400 14px Arial, sans-serif}
+    </style>
+  </defs>
+  <rect width="1600" height="220" class="bg"/>
+  <path d="M100 112C250 50 380 50 500 112S790 174 920 112 1210 50 1410 112" class="line"/>
+  <circle cx="100" cy="112" r="26" fill="#e0b14f"/>
+  <circle cx="500" cy="112" r="18" fill="#e0b14f" opacity="0.9"/>
+  <circle cx="920" cy="112" r="18" fill="#e0b14f" opacity="0.72"/>
+  <circle cx="1410" cy="112" r="26" fill="#e0b14f"/>
+  <rect x="160" y="48" rx="18" ry="18" width="260" height="96" class="node"/>
+  <text x="196" y="92" class="t1">蜜蜂.mp4</text>
+  <text x="196" y="118" class="t2">full screen opening</text>
+  <rect x="560" y="48" rx="18" ry="18" width="320" height="96" class="node"/>
+  <text x="598" y="92" class="t1">点击蜂形热点</text>
+  <text x="598" y="118" class="t2">进入导览外壳</text>
+  <rect x="1040" y="48" rx="18" ry="18" width="360" height="96" class="node"/>
+  <text x="1078" y="92" class="t1">3D 导览界面</text>
+  <text x="1078" y="118" class="t2">双入口, 风格预设, 模型切换</text>
+</svg>

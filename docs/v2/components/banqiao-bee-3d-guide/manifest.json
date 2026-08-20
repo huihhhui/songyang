@@ -1,0 +1,69 @@
+{
+  "id": "banqiao-bee-3d-guide",
+  "route": "/lab/toushi-presets",
+  "entryState": "headdress-halftone",
+  "exitState": "preset-selected",
+  "implementationStage": "headdress-presets-only",
+  "integrationStatus": "standalone-review",
+  "states": [
+    "loading",
+    "headdress-prototype",
+    "headdress-halftone",
+    "headdress-charcode",
+    "headdress-particle-cloud",
+    "headdress-wireframe-scan",
+    "headdress-pixel",
+    "model-error",
+    "preset-selected"
+  ],
+  "assets": {
+    "background": "",
+    "interactive": [
+      "public/assets/imagegen/banqiao-assets/toushi/base_basic_pbr.glb",
+      "public/assets/imagegen/banqiao-assets/toushi/base_basic_shaded.glb",
+      "public/assets/imagegen/banqiao-assets/1c94875422c97c3929a27501f34ba18d-web.glb"
+    ],
+    "transition": [],
+    "nextScene": ""
+  },
+  "models": [
+    {
+      "id": "headdress-model",
+      "label": "畲族头饰3D模型",
+      "asset": "public/assets/imagegen/banqiao-assets/toushi/base_basic_pbr.glb",
+      "fallbackAsset": "public/assets/imagegen/banqiao-assets/toushi/base_basic_shaded.glb"
+    },
+    {
+      "id": "banqiao-web-object",
+      "label": "Banqiao web object",
+      "asset": "public/assets/imagegen/banqiao-assets/1c94875422c97c3929a27501f34ba18d-web.glb"
+    }
+  ],
+  "presets": [
+    "prototype",
+    "halftone",
+    "charcode",
+    "point-cloud",
+    "wireframe-scan",
+    "pixel"
+  ],
+  "palettePresets": {
+    "wireframe-scan": ["Prism", "Acid", "Sunset"],
+    "pixel": ["Raster", "Candy", "Heat"]
+  },
+  "interaction": {
+    "pointerAxis": "drag-orbit-and-wheel-zoom",
+    "resetKey": "0",
+    "completionThreshold": 1
+  },
+  "handoff": {
+    "nextRoute": "",
+    "nextAnchor": "",
+    "note": "Do not integrate yet. The bee intro, dual-entry guide, and Banqiao model remain pending."
+  },
+  "plannedModules": {
+    "beeIntro": "public/assets/imagegen/banqiao-assets/蜜蜂.mp4",
+    "banqiaoModel": "pending",
+    "dualEntryGuide": "pending"
+  }
+}

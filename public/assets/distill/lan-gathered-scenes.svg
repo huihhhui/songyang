@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1800" role="img" aria-labelledby="title desc">
+  <title id="title">BQ-02 兰老师的现场讲述：手、木工具与织带</title>
+  <desc id="desc">以授权现场照片为锚点，纸面抽取编织动作和蓝色织带的方向关系。</desc>
+  <defs>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".7" numOctaves="2"/><feColorMatrix type="saturate" values="0"/></filter>
+    <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency=".02" numOctaves="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5"/></filter>
+    <clipPath id="photo"><path d="M102 180 Q120 150 154 170 L1082 155 Q1116 160 1100 198 L1080 1080 Q1070 1118 1032 1108 L122 1142 Q88 1136 96 1096 Z"/></clipPath>
+  </defs>
+  <rect width="1200" height="1800" fill="#e9e3d5"/>
+  <rect width="1200" height="1800" fill="#453b35" opacity=".1" filter="url(#grain)"/>
+  <g clip-path="url(#photo)">
+    <image href="/assets/images/banqiao/lan-teacher-weaving.jpg" x="65" y="120" width="1070" height="1060" preserveAspectRatio="xMidYMid slice"/>
+    <rect x="65" y="120" width="1070" height="1060" fill="#5b302d" opacity=".16"/>
+  </g>
+  <path d="M102 1190 C280 1110 430 1162 578 1245 C730 1330 870 1320 1100 1174 L1100 1510 C878 1614 724 1590 556 1508 C380 1423 246 1435 102 1490 Z" fill="#282821" opacity=".92" filter="url(#rough)"/>
+  <path d="M118 1320 C274 1232 412 1248 556 1332 C716 1427 866 1412 1090 1280" fill="none" stroke="#224b92" stroke-width="52" filter="url(#rough)"/>
+  <path d="M124 1320 C278 1249 414 1265 552 1346 C716 1440 872 1426 1080 1298" fill="none" stroke="#f1ede2" stroke-width="15"/>
+  <path d="M128 1355 C286 1287 420 1300 548 1370 C714 1460 868 1452 1072 1330" fill="none" stroke="#d7a426" stroke-width="8"/>
+  <g fill="#282821" font-family="Courier New, monospace" font-size="22" letter-spacing="4">
+    <text x="108" y="92">BANQIAO / BQ-02</text><text x="108" y="1715">HAND / RIBBON / MEMORY</text>
+  </g>
+</svg>

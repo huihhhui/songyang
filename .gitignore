@@ -1,0 +1,28 @@
+# Local credentials
+.env.image.local
+
+# Dependencies and generated builds
+node_modules/
+dist/
+.vite/
+
+# Local previews, research captures, and test output
+tmp/
+tmp_*.html
+playwright-report/
+test-results/
+coverage/
+
+# Local machine files
+*.log
+*.msi
+.DS_Store
+Thumbs.db
+
+# Large local production inputs and generated visual references
+source-assets/
+references/visual/explorations/
+tools/blender-mcp/
+
+# Environment files
+.env.*.local
