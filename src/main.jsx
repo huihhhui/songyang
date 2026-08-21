@@ -13,7 +13,6 @@ const fontAsset = (path) => new URL(assetPath(path), document.baseURI).href
 // inside @font-face src, while a concrete style URL works in local and Pages.
 const fontStyle = document.createElement('style')
 fontStyle.textContent = [
-  ['PingFang Qiao Mu', 'fonts/PingFangQiaoMuTi.ttf', 'truetype'],
   ['KidTYPE Crayon', 'fonts/KidTypeCrayon.ttf', 'truetype'],
   ['Huiwen Ming', 'fonts/HuiwenMing.otf', 'opentype'],
 ].map(([family, path, format]) => `@font-face{font-family:"${family}";src:url("${fontAsset(path)}") format("${format}");font-display:swap;}`).join('')
@@ -24,7 +23,6 @@ document.documentElement.style.setProperty('--asset-ke-lamp', cssAsset('ke/sz-02
 document.documentElement.style.setProperty('--asset-source-teacher', cssAsset('source/banqiao/teacher-weaving.jpg'))
 document.documentElement.style.setProperty('--asset-bamboo-strip', cssAsset('imagegen/banqiao-assets/banqiao-bamboo-strip-v1-alpha-trim.png'))
 document.documentElement.style.setProperty('--asset-lan-scrollbar', cssAsset('imagegen/banqiao-assets/lan-scrollbar-v1.png'))
-document.documentElement.style.setProperty('--asset-font-pingfang', cssAsset('fonts/PingFangQiaoMuTi.ttf'))
 document.documentElement.style.setProperty('--asset-font-crayon', cssAsset('fonts/KidTypeCrayon.ttf'))
 // Keep the Chinese font in a short, ASCII asset path so Vite and GitHub Pages
 // serve it consistently across local and production builds.

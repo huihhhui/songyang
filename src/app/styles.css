@@ -1,7 +1,6 @@
-@font-face { font-family: 'PingFang Qiao Mu'; src: var(--asset-font-pingfang) format('truetype'); font-display: swap; }
 @font-face { font-family: 'KidTYPE Crayon'; src: var(--asset-font-crayon) format('truetype'); font-display: swap; }
 @font-face { font-family: 'Huiwen Ming'; src: var(--asset-font-huiwen) format('opentype'); font-display: swap; }
-:root { color: #202522; background: #e9ece8; font-family: 'PingFang Qiao Mu', 'Huiwen Ming', 'Microsoft YaHei', sans-serif; font-synthesis: none; text-rendering: optimizeLegibility; --ink: #202522; --muted: #66706a; --line: #b6c0b9; --paper: #f3f4ef; --accent: #b14832; --font-ming: 'PingFang Qiao Mu', 'Huiwen Ming', 'Songti SC', serif; --font-crayon: 'KidTYPE Crayon', cursive; }
+:root { color: #202522; background: #e9ece8; font-family: 'Huiwen Ming', 'Microsoft YaHei', sans-serif; font-synthesis: none; text-rendering: optimizeLegibility; --ink: #202522; --muted: #66706a; --line: #b6c0b9; --paper: #f3f4ef; --accent: #b14832; --font-ming: 'Huiwen Ming', 'Songti SC', serif; --font-crayon: 'KidTYPE Crayon', cursive; }
 * { box-sizing: border-box; }
 html, body, #root { min-height: 100%; margin: 0; }
 body { min-width: 320px; }
