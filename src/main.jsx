@@ -9,17 +9,15 @@ import { assetPath } from './lib/assetPath.js'
 const cssAsset = (path) => `url(${new URL(assetPath(path), document.baseURI).href})`
 const fontAsset = (path) => new URL(assetPath(path), document.baseURI).href
 
-// Register fonts through the FontFace API. CSS custom properties are not
-// consistently accepted inside @font-face src declarations in Edge.
-for (const [family, path] of [
-  ['PingFang Qiao Mu', 'fonts/PingFangQiaoMuTi.ttf'],
-  ['KidTYPE Crayon', 'fonts/KidTypeCrayon.ttf'],
-  ['Huiwen Ming', 'fonts/HuiwenMing.otf'],
-]) {
-  const font = new FontFace(family, `url(${fontAsset(path)})`)
-  document.fonts.add(font)
-  font.load().catch(() => {})
-}
+// Keep font URLs absolute at runtime. Edge can reject a CSS variable nested
+// inside @font-face src, while a concrete style URL works in local and Pages.
+const fontStyle = document.createElement('style')
+fontStyle.textContent = [
+  ['PingFang Qiao Mu', 'fonts/PingFangQiaoMuTi.ttf', 'truetype'],
+  ['KidTYPE Crayon', 'fonts/KidTypeCrayon.ttf', 'truetype'],
+  ['Huiwen Ming', 'fonts/HuiwenMing.otf', 'opentype'],
+].map(([family, path, format]) => `@font-face{font-family:"${family}";src:url("${fontAsset(path)}") format("${format}");font-display:swap;}`).join('')
+document.head.appendChild(fontStyle)
 
 document.documentElement.style.setProperty('--asset-ke-bq-house', cssAsset('ke/bq-01-earthen-house-v13.png'))
 document.documentElement.style.setProperty('--asset-ke-lamp', cssAsset('ke/sz-02-lamp-v10.png'))
