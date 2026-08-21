@@ -11,6 +11,9 @@ document.documentElement.style.setProperty('--asset-ke-lamp', `url(${assetPath('
 document.documentElement.style.setProperty('--asset-source-teacher', `url(${assetPath('source/banqiao/teacher-weaving.jpg')})`)
 document.documentElement.style.setProperty('--asset-bamboo-strip', `url(${assetPath('imagegen/banqiao-assets/banqiao-bamboo-strip-v1-alpha-trim.png')})`)
 document.documentElement.style.setProperty('--asset-lan-scrollbar', `url(${assetPath('imagegen/banqiao-assets/lan-scrollbar-v1.png')})`)
+document.documentElement.style.setProperty('--asset-font-oradano', `url(${assetPath('imagegen/banqiao-assets/ORADANOMingChaoTi/ORADANOMingChaoTi/CC0-OradanoMingChaoTi-2.ttf')})`)
+document.documentElement.style.setProperty('--asset-font-crayon', `url(${assetPath('imagegen/banqiao-assets/KidTYPE-Crayon/KidTYPE-Crayon/殴り書きクレヨン')})`)
+document.documentElement.style.setProperty('--asset-font-huiwen', `url(${assetPath('imagegen/banqiao-assets/Huiwenmingchaoti/汇文明朝体.otf')})`)
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

@@ -1,6 +1,6 @@
-@font-face { font-family: 'Oradano Ming'; src: url('./assets/imagegen/banqiao-assets/ORADANOMingChaoTi/ORADANOMingChaoTi/CC0-OradanoMingChaoTi-2.ttf') format('truetype'); font-display: swap; }
-@font-face { font-family: 'KidTYPE Crayon'; src: url('/assets/imagegen/banqiao-assets/KidTYPE-Crayon/KidTYPE-Crayon/殴り書きクレヨン') format('truetype'); font-display: swap; }
-@font-face { font-family: 'Huiwen Ming'; src: url('/assets/imagegen/banqiao-assets/Huiwenmingchaoti/汇文明朝体.otf') format('opentype'); font-display: swap; }
+@font-face { font-family: 'Oradano Ming'; src: var(--asset-font-oradano) format('truetype'); font-display: swap; }
+@font-face { font-family: 'KidTYPE Crayon'; src: var(--asset-font-crayon) format('truetype'); font-display: swap; }
+@font-face { font-family: 'Huiwen Ming'; src: var(--asset-font-huiwen) format('opentype'); font-display: swap; }
 :root { color: #202522; background: #e9ece8; font-family: 'Microsoft YaHei', 'Noto Sans SC', sans-serif; font-synthesis: none; text-rendering: optimizeLegibility; --ink: #202522; --muted: #66706a; --line: #b6c0b9; --paper: #f3f4ef; --accent: #b14832; --font-ming: 'Oradano Ming', 'Songti SC', serif; --font-crayon: 'KidTYPE Crayon', 'KaiTi', cursive; }
 * { box-sizing: border-box; }
 html, body, #root { min-height: 100%; margin: 0; }
