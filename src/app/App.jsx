@@ -776,7 +776,7 @@ function BanqiaoJourneyV2({ initialStage }) {
       style={{ '--needle-y': `${needleY}%`, '--push-x': `${pushProgress * 36}vw` }}
     />
     <p className="bq-mechanic-hint">{hint}</p>
-    {journeyStage === 'handoff' && <BanqiaoRibbonHandoff onContinue={() => setJourneyStage('materials')} />}
+    {journeyStage === 'handoff' && <BanqiaoRibbonHandoff onContinue={() => setJourneyStage('bee')} />}
   </main>
 }
 
