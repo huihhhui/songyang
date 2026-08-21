@@ -178,7 +178,7 @@ export default function PaperStage() {
       <button
         className="paper-stage__next"
         type="button"
-        onClick={() => navigate('/placeholder/wall-drawing')}
+        onClick={() => navigate('/placeholder/rock-ceramic')}
       >
         <span>Next</span>
         <span className="paper-stage__next-arrow" aria-hidden="true">→</span>

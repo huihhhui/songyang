@@ -124,7 +124,7 @@ export default function FlowerRopeReveal() {
       </div>
       <Link
         className="flower-rope__next"
-        to="/"
+        to="/placeholder/paper-stage-next"
         aria-label="Next"
         style={{
           position: 'absolute',

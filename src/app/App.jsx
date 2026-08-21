@@ -5,6 +5,7 @@ import { claims, reports } from '../data/reports.js'
 import ToushiPresetLab from '../components/ToushiPresetLab.jsx'
 import FlowerRopeReveal from '../components/FlowerRopeReveal.jsx'
 import PaperStage from '../components/PaperStage.jsx'
+import RockCeramicScene from '../components/RockCeramicScene.jsx'
 import { useAudio } from '../audio/AudioProvider.jsx'
 import { assetPath } from '../lib/assetPath.js'
 
@@ -25,7 +26,10 @@ function VillageChapter() {
   // dedicated Banqiao entry route. The latter intentionally has no path param.
   const { villageId: routeVillageId } = useParams(); const villageId = routeVillageId || 'banqiao'; const [searchParams] = useSearchParams(); const village = getVillage(villageId); if (!village) return <Navigate to="/" replace />
   const chapterStations = getStations(villageId)
-  if (villageId === 'banqiao') return <BanqiaoJourneyV2 village={village} initialStage={searchParams.get('stage')} />
+  if (villageId === 'banqiao') {
+    const initialStage = searchParams.get('stage') || 'weave'
+    return <BanqiaoJourneyV2 key={initialStage} village={village} initialStage={initialStage} />
+  }
   return <main className="app-shell chapter-shell"><Header backTo="/" backLabel={ui.returnOverview} /><section className={`chapter-hero chapter-hero--${village.palette}`}><p className="eyebrow">{village.index} / {ui.stationIndex}</p><h1>{village.name}</h1><p>{village.intro}</p></section><section className="station-index">{chapterStations.map((station, index) => <article className="station-row" key={station.id}><span className="station-number">{String(index + 1).padStart(2, '0')}</span><div><p className="eyebrow">{station.kicker}</p><h2>{station.title}</h2><p className="station-summary">{station.evidence?.description}</p></div><Link className="action-link" to={`/station/${station.id}`}>{ui.startStation} ↗</Link></article>)}</section></main>
 }
 
@@ -947,11 +951,12 @@ function Station() { const { stationId } = useParams(); const station = stations
 
 export default function App() {
   return <Routes>
-    <Route path="/" element={<Overview />} />
-    <Route path="/village/:villageId" element={<VillageChapter />} />
+    <Route path="/" element={<Navigate to="/village/banqiao" replace />} />
+    <Route path="/village/banqiao" element={<VillageChapter />} />
     <Route path="/lab/toushi-presets/banqiao" element={<BanqiaoBeeGuideRoute />} />
     <Route path="/flower-rope" element={<FlowerRopeReveal />} />
     <Route path="/placeholder/paper-stage-next" element={<PaperStage />} />
+    <Route path="/placeholder/rock-ceramic" element={<RockCeramicScene />} />
     <Route path="/placeholder/wall-drawing" element={<WallDrawingScene />} />
     <Route path="*" element={<Navigate to="/" replace />} />
   </Routes>
