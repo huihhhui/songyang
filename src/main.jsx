@@ -13,7 +13,9 @@ document.documentElement.style.setProperty('--asset-bamboo-strip', `url(${assetP
 document.documentElement.style.setProperty('--asset-lan-scrollbar', `url(${assetPath('imagegen/banqiao-assets/lan-scrollbar-v1.png')})`)
 document.documentElement.style.setProperty('--asset-font-oradano', `url(${assetPath('imagegen/banqiao-assets/ORADANOMingChaoTi/ORADANOMingChaoTi/CC0-OradanoMingChaoTi-2.ttf')})`)
 document.documentElement.style.setProperty('--asset-font-crayon', `url(${assetPath('imagegen/banqiao-assets/KidTYPE-Crayon/KidTYPE-Crayon/殴り書きクレヨン')})`)
-document.documentElement.style.setProperty('--asset-font-huiwen', `url(${assetPath('imagegen/banqiao-assets/Huiwenmingchaoti/汇文明朝体.otf')})`)
+// Keep the Chinese font in a short, ASCII asset path so Vite and GitHub Pages
+// serve it consistently across local and production builds.
+document.documentElement.style.setProperty('--asset-font-huiwen', `url(${assetPath('fonts/HuiwenMing.otf')})`)
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
