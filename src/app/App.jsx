@@ -5,7 +5,6 @@ import { claims, reports } from '../data/reports.js'
 import ToushiPresetLab from '../components/ToushiPresetLab.jsx'
 import FlowerRopeReveal from '../components/FlowerRopeReveal.jsx'
 import PaperStage from '../components/PaperStage.jsx'
-import RockCeramicScene from '../components/RockCeramicScene.jsx'
 import { useAudio } from '../audio/AudioProvider.jsx'
 import { assetPath } from '../lib/assetPath.js'
 
@@ -878,11 +877,6 @@ function WallDrawingScene() {
   </main>
 }
 
-function PlaceholderScene() {
-  const { slug } = useParams()
-  return slug === 'wall-drawing' ? <WallDrawingScene /> : <RockCeramicScene />
-}
-
 function BanqiaoBeeGuideRoute() {
   return <div className="banqiao-guide-route">
     <Link className="banqiao-guide-route__back" to="/village/banqiao?stage=bee">返回蜂房</Link>
@@ -951,11 +945,11 @@ function Station() { const { stationId } = useParams(); const station = stations
 
 export default function App() {
   return <Routes>
-    <Route path="/" element={<PaperStage />} />
+    <Route path="/" element={<Overview />} />
     <Route path="/village/banqiao" element={<VillageChapter />} />
     <Route path="/lab/toushi-presets/banqiao" element={<BanqiaoBeeGuideRoute />} />
     <Route path="/flower-rope" element={<FlowerRopeReveal />} />
-    <Route path="/placeholder/paper-stage-next" element={<RockCeramicScene />} />
+    <Route path="/placeholder/paper-stage-next" element={<PaperStage />} />
     <Route path="/placeholder/wall-drawing" element={<WallDrawingScene />} />
     <Route path="*" element={<Navigate to="/" replace />} />
   </Routes>
