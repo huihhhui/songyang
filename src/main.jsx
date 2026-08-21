@@ -13,8 +13,8 @@ document.documentElement.style.setProperty('--asset-ke-lamp', cssAsset('ke/sz-02
 document.documentElement.style.setProperty('--asset-source-teacher', cssAsset('source/banqiao/teacher-weaving.jpg'))
 document.documentElement.style.setProperty('--asset-bamboo-strip', cssAsset('imagegen/banqiao-assets/banqiao-bamboo-strip-v1-alpha-trim.png'))
 document.documentElement.style.setProperty('--asset-lan-scrollbar', cssAsset('imagegen/banqiao-assets/lan-scrollbar-v1.png'))
-document.documentElement.style.setProperty('--asset-font-oradano', cssAsset('imagegen/banqiao-assets/ORADANOMingChaoTi/ORADANOMingChaoTi/CC0-OradanoMingChaoTi-2.ttf'))
-document.documentElement.style.setProperty('--asset-font-crayon', cssAsset('imagegen/banqiao-assets/KidTYPE-Crayon/KidTYPE-Crayon/殴り書きクレヨン'))
+document.documentElement.style.setProperty('--asset-font-pingfang', cssAsset('fonts/PingFangQiaoMuTi.ttf'))
+document.documentElement.style.setProperty('--asset-font-crayon', cssAsset('fonts/KidTypeCrayon.ttf'))
 // Keep the Chinese font in a short, ASCII asset path so Vite and GitHub Pages
 // serve it consistently across local and production builds.
 document.documentElement.style.setProperty('--asset-font-huiwen', cssAsset('fonts/HuiwenMing.otf'))
