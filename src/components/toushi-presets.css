@@ -1460,3 +1460,26 @@
 .toushi-preset-rail__item { background: #211c18; }
 .toushi-preset-rail__mark { filter: sepia(.65) saturate(1.45); }
 @media (max-width: 900px) { .toushi-stage-shell { min-height: 500px; border-width: 12px; border-radius: 22px; } .toushi-crt-status { right: 18px; bottom: 14px; gap: 8px; font-size: 8px; } }
+
+/* The lab is a single dark instrument, including the area outside its CRT.
+   This final rule intentionally wins over the earlier paper/archive skins. */
+html:has(.banqiao-guide-route),
+body:has(.banqiao-guide-route),
+#root:has(.banqiao-guide-route),
+.banqiao-guide-route,
+.banqiao-guide-route .toushi-page,
+.toushi-page {
+  background: #171513 !important;
+}
+
+.toushi-page::before {
+  display: none !important;
+}
+
+.toushi-page::after {
+  background:
+    radial-gradient(circle, rgb(231 125 50 / .08) 0 1px, transparent 1.5px),
+    linear-gradient(90deg, transparent 0 14%, rgb(231 125 50 / .08) 14.1%, transparent 14.2% 100%) !important;
+  background-size: 6px 6px, auto !important;
+  opacity: .32 !important;
+}

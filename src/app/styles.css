@@ -1357,7 +1357,8 @@ a { color: inherit; }
 .bq-link-mid {
   position: absolute;
   z-index: 9;
-  left: 56%;
+  /* Keep the connector and supplied band on one shared seam. */
+  left: 51%;
   top: 13%;
   height: 74%;
   width: auto;
@@ -1373,7 +1374,7 @@ a { color: inherit; }
   z-index: 8;
   /* The band begins where the connector exits, matching the transition
      video's first meaningful woven-band frame. */
-  left: 62%;
+  left: 56%;
   top: 35.8%;
   width: auto;
   height: 31%;
@@ -1415,12 +1416,12 @@ a { color: inherit; }
     height: clamp(940px, 168vh, 1320px);
   }
   .banqiao-play--mechanic-v2 .bq-link-mid {
-    left: 52vw;
+    left: 47vw;
     top: 15vh;
     height: 70vh;
   }
   .banqiao-play--mechanic-v2 .bq-right-band-custom {
-    left: calc(52vw + 8.65vh);
+    left: calc(47vw + 8.65vh);
     top: 36.6vh;
     width: auto;
     height: 29.4vh;
