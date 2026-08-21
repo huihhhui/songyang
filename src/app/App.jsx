@@ -886,7 +886,7 @@ function BanqiaoBeeGuideRoute() {
 
 const banqiaoKeCopy = {
   'banqiao-lan-teacher': {
-    image: assetPath('banqiao-transition/bq-ribbon-to-lan-tail-v1.png'),
+    image: assetPath('imagegen/banqiao-transition/bq-ribbon-to-lan-tail-v1.png'),
     transitionVideo: assetPath('imagegen/banqiao-assets/2-web.mp4'),
     alt: '布带散线过渡到兰老师编织手部的尾帧',
     title: '彩带从一根线开始',
