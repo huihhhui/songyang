@@ -700,6 +700,21 @@ function BanqiaoJourneyV2({ initialStage }) {
   const stageRef = useRef(null)
 
   useEffect(() => {
+    const critical = [
+      'imagegen/banqiao-assets/banqiao-bamboo-strip-v1-alpha-trim.png',
+      'imagegen/banqiao-assets/mid-lines-web.png',
+      'imagegen/banqiao-assets/right-band-web.png',
+    ]
+    const images = critical.map((path) => {
+      const image = new Image()
+      image.decoding = 'async'
+      image.src = assetPath(path)
+      return image
+    })
+    return () => images.forEach((image) => { image.src = '' })
+  }, [])
+
+  useEffect(() => {
     if (phase !== 'weft') return undefined
     play('lineLift', { restart: true })
     const timer = window.setTimeout(() => setPhase('push'), 850)
@@ -776,8 +791,8 @@ function BanqiaoJourneyV2({ initialStage }) {
   >
     <div className="bq-mechanic-base" aria-hidden="true" />
     <video className="bq-ribbon-preload" src={assetPath('imagegen/banqiao-assets/2-web.mp4')} preload="auto" muted playsInline aria-hidden="true" />
-    <img className="bq-link-mid" src={assetPath('imagegen/banqiao-assets/mid-lines-web.png')} alt="" aria-hidden="true" />
-    <img className="bq-right-band-custom" src={assetPath('imagegen/banqiao-assets/right-band-web.png')} alt="" aria-hidden="true" />
+    <img className="bq-link-mid" src={assetPath('imagegen/banqiao-assets/mid-lines-web.png')} alt="" aria-hidden="true" decoding="async" />
+    <img className="bq-right-band-custom" src={assetPath('imagegen/banqiao-assets/right-band-web.png')} alt="" aria-hidden="true" decoding="async" />
     <BanqiaoYarnPhysicsV2 needleY={needleY} dragging={isDragging} bladeRef={bladeRef} phase={phase} pushProgress={pushProgress} active={journeyStage !== 'handoff'} stageRef={stageRef} />
     <button
       ref={bladeRef}
