@@ -1,12 +1,13 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
+import { assetPath } from '../lib/assetPath.js'
 
 const AUDIO = {
-  ambience: '/assets/audio/main1.mp3',
-  lineSlide: '/assets/audio/%E7%BA%BF%E6%BB%91%E5%8A%A8.mp3',
-  lineLift: '/assets/audio/%E7%BA%BF%E8%A2%AB%E6%8C%91%E8%B5%B7.mp3',
-  debris: '/assets/audio/%E5%9E%83%E5%9C%BE%E7%A0%B4%E7%A2%8E.mp3',
-  uiClick: '/assets/audio/%E6%8C%89%E9%92%AE.mp3',
-  slider: '/assets/audio/%E6%BB%91%E6%9D%A1.mp3',
+  ambience: assetPath('audio/main1.mp3'),
+  lineSlide: assetPath('audio/线滑动.mp3'),
+  lineLift: assetPath('audio/线被挑起.mp3'),
+  debris: assetPath('audio/垃圾破碎.mp3'),
+  uiClick: assetPath('audio/按钮.mp3'),
+  slider: assetPath('audio/滑条.mp3'),
 }
 
 const AudioContext = createContext(null)

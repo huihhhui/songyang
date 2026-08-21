@@ -7,6 +7,7 @@ import FlowerRopeReveal from '../components/FlowerRopeReveal.jsx'
 import PaperStage from '../components/PaperStage.jsx'
 import RockCeramicScene from '../components/RockCeramicScene.jsx'
 import { useAudio } from '../audio/AudioProvider.jsx'
+import { assetPath } from '../lib/assetPath.js'
 
 function Status({ status }) { return <span className={`status status--${status}`}>{sourceLabels[status] || status}</span> }
 
@@ -16,7 +17,7 @@ function Header({ backTo, backLabel }) {
 }
 
 function Overview() {
-  const covers = { yang: '/assets/ke/yj-01-couple-tree-detail-v13.png', song: '/assets/ke/sz-01-peach-v8.png', banqiao: '/assets/ke/bq-02-teacher-v10.png' }
+  const covers = { yang: assetPath('ke/yj-01-couple-tree-detail-v13.png'), song: assetPath('ke/sz-01-peach-v8.png'), banqiao: assetPath('ke/bq-02-teacher-v10.png') }
   return <main className="app-shell"><Header /><section className="overview-intro"><p className="eyebrow">{ui.archiveLabel}</p><h1>{ui.overviewTitle}</h1><p>{ui.overviewIntro}</p></section><section className="village-grid" aria-label="三村档案入口">{villages.map((village) => <article className={`village-card village-card--${village.palette}`} key={village.id}><img src={covers[village.palette]} alt={`${village.name}观察素材`} /><div className="village-card__veil" /><div className="village-card__content"><div className="village-card__meta"><span>{village.index}</span><span>{village.englishName}</span></div><h2>{village.name}</h2><p>{village.intro}</p><footer><small>{village.stations.length} 个观察站</small><Link to={`/village/${village.id}`}>{ui.enterVillage} <span aria-hidden="true">↗</span></Link></footer></div></article>)}</section></main>
 }
 
@@ -237,8 +238,8 @@ function BanqiaoJourney() {
     setIsDragging(false)
   }
   return <main className="banqiao-play banqiao-play--mechanic" onPointerMove={movePull} onPointerUp={stopPull} onPointerCancel={stopPull}>
-    <img className="bq-mechanic-base" src="/assets/imagegen/banqiao-assets/banqiao-weave-background-v1.png" alt="纸张与织物肌理背景" />
-    <img className="bq-woven-target" src="/assets/imagegen/banqiao-assets/banqiao-woven-target-photo-v3.png" alt="已编织完成的畲族布带图案" />
+    <img className="bq-mechanic-base" src={assetPath('imagegen/banqiao-assets/banqiao-weave-background-v1.png')} alt="纸张与织物肌理背景" />
+    <img className="bq-woven-target" src={assetPath('imagegen/banqiao-assets/banqiao-woven-target-photo-v3.png')} alt="已编织完成的畲族布带图案" />
     <BanqiaoYarnPhysics needleY={needleY} dragging={isDragging} bladeRef={bladeRef} phase={phase} pushProgress={pushProgress} />
     {phase !== 'pick' && <span className="bq-weft-line" style={{ '--push-x': `${pushProgress * 45}vw` }} aria-hidden="true" />}
     <button ref={bladeRef} className={`bq-shuttle bq-shuttle--mechanic bq-shuttle--${phase}`} type="button" aria-label="拖动竹片挑起纱线" onPointerDown={startPull} style={{ '--needle-y': `${needleY}%`, '--push-x': `${pushProgress * 45}vw` }} />
@@ -267,7 +268,7 @@ function LegacyBanqiaoJourney() {
 
   return <main className={`banqiao-play banqiao-play--${scene}`} onPointerMove={movePull}>
     <div className="bq-scene bq-scene--hands" aria-hidden={scene !== 'hands'} style={{ '--quote-two': Math.max(0, Math.min(1, (pull - 0.36) * 2.4)) }}>
-      <img className="bq-photo bq-photo--lesson" src="/assets/source/banqiao/teacher-weaving.jpg" alt="兰老师指导队员编织畲族布带" />
+      <img className="bq-photo bq-photo--lesson" src={assetPath('source/banqiao/teacher-weaving.jpg')} alt="兰老师指导队员编织畲族布带" />
       <div className="bq-photo-slice bq-photo-slice--warp" style={{ '--pull': pull }} />
       <div className="bq-photo-slice bq-photo-slice--wood" />
       <div className="bq-quote bq-quote--first"><p>“以前每家的女孩，妈妈都要教女孩子织带子。”</p><small>兰炳花老师现场讲述整理</small></div>
@@ -276,17 +277,17 @@ function LegacyBanqiaoJourney() {
       <p className="bq-whisper" style={{ opacity: 1 - pull }}>按住梭子，向右拉开</p>
     </div>
     <div className="bq-scene bq-scene--tool" aria-hidden={scene !== 'tool'} onClick={() => setScene('ribbon')}>
-      <img className="bq-photo bq-photo--tool" src="/assets/source/banqiao/weaving-tools.jpg" alt="制作畲族布带的工具" />
+      <img className="bq-photo bq-photo--tool" src={assetPath('source/banqiao/weaving-tools.jpg')} alt="制作畲族布带的工具" />
       <div className="bq-tool-copy"><p>线被拉起，工具才显出它的尺度。</p><p>兰老师讲，长一些、短一些，都可以依着用途调整。</p><small>点击布带，继续</small></div>
       <span className="bq-line bq-line--one" /><span className="bq-line bq-line--two" /><span className="bq-line bq-line--three" />
     </div>
     <div className="bq-scene bq-scene--ribbon" aria-hidden={scene !== 'ribbon'} onClick={() => setScene('voice')}>
-      <img className="bq-photo bq-photo--ribbon" src="/assets/source/banqiao/ribbons.jpg" alt="桌上的畲族布带" />
+      <img className="bq-photo bq-photo--ribbon" src={assetPath('source/banqiao/ribbons.jpg')} alt="桌上的畲族布带" />
       <div className="bq-ribbon-quote"><p>“这种最漂亮的花纹，以前拿来当定情物。”</p><small>兰炳花老师现场讲述整理</small></div>
       <p className="bq-whisper bq-whisper--ribbon">触碰布带，听她继续讲</p>
     </div>
     <div className="bq-scene bq-scene--voice" aria-hidden={scene !== 'voice'} onClick={() => setScene('hands')}>
-      <img className="bq-photo bq-photo--teacher" src="/assets/ke/bq-02-teacher-v10.png" alt="兰老师讲述畲歌与编织" />
+      <img className="bq-photo bq-photo--teacher" src={assetPath('ke/bq-02-teacher-v10.png')} alt="兰老师讲述畲歌与编织" />
       <div className="bq-voice-copy"><p>她后来主要传承畲歌、畲语，也从学校教学讲到孩子们外出演出的期待。</p><p>“真的要失传了。”</p><small>兰炳花老师现场讲述整理。点击回到织带。</small></div>
     </div>
   </main>
@@ -762,9 +763,9 @@ function BanqiaoJourneyV2({ initialStage }) {
     style={{ '--camera-x': '0vw', '--scene-x': '0vw', '--stage-shift': '0vw', '--push-x-max': '36vw' }}
   >
     <div className="bq-mechanic-base" aria-hidden="true" />
-    <video className="bq-ribbon-preload" src="/assets/imagegen/banqiao-assets/2-web.mp4" preload="auto" muted playsInline aria-hidden="true" />
-    <img className="bq-link-mid" src="/assets/imagegen/banqiao-assets/mid-lines-web.png" alt="" aria-hidden="true" />
-    <img className="bq-right-band-custom" src="/assets/imagegen/banqiao-assets/right-band-web.png" alt="" aria-hidden="true" />
+    <video className="bq-ribbon-preload" src={assetPath('imagegen/banqiao-assets/2-web.mp4')} preload="auto" muted playsInline aria-hidden="true" />
+    <img className="bq-link-mid" src={assetPath('imagegen/banqiao-assets/mid-lines-web.png')} alt="" aria-hidden="true" />
+    <img className="bq-right-band-custom" src={assetPath('imagegen/banqiao-assets/right-band-web.png')} alt="" aria-hidden="true" />
     <BanqiaoYarnPhysicsV2 needleY={needleY} dragging={isDragging} bladeRef={bladeRef} phase={phase} pushProgress={pushProgress} active={journeyStage !== 'handoff'} />
     <button
       ref={bladeRef}
@@ -807,7 +808,7 @@ function BanqiaoRibbonHandoff({ onContinue }) {
     <video
       ref={videoRef}
       className="banqiao-ribbon-handoff__video"
-      src="/assets/imagegen/banqiao-assets/2-web.mp4"
+      src={assetPath('imagegen/banqiao-assets/2-web.mp4')}
       muted
       playsInline
       preload="auto"
@@ -851,18 +852,18 @@ function BanqiaoMaterialsScene({ onContinue }) {
 function BanqiaoBeeScene() {
   const [videoEnded, setVideoEnded] = useState(false)
   return <main className={`banqiao-flow-screen banqiao-flow-screen--bee ${videoEnded ? 'is-video-ended' : ''}`}>
-    <video className="banqiao-flow-screen__video" src="/assets/imagegen/banqiao-assets/%E8%9C%9C%E8%9C%82.mp4" autoPlay muted playsInline onEnded={() => setVideoEnded(true)} onError={() => setVideoEnded(true)} aria-hidden="true" />
-    <a className="banqiao-flow-screen__bee-link banqiao-flow-screen__bee-link--lab" href="/#/lab/toushi-presets/banqiao">3D数字实验室</a>
-    <a className="banqiao-flow-screen__bee-link banqiao-flow-screen__bee-link--songzhuang" href="/#/flower-rope">松庄</a>
+    <video className="banqiao-flow-screen__video" src={assetPath('imagegen/banqiao-assets/蜜蜂.mp4')} autoPlay muted playsInline onEnded={() => setVideoEnded(true)} onError={() => setVideoEnded(true)} aria-hidden="true" />
+    <a className="banqiao-flow-screen__bee-link banqiao-flow-screen__bee-link--lab" href="#/lab/toushi-presets/banqiao">3D数字实验室</a>
+    <a className="banqiao-flow-screen__bee-link banqiao-flow-screen__bee-link--songzhuang" href="#/flower-rope">松庄</a>
     <div className="banqiao-flow-screen__bee-copy"><p>蜂房在前面。</p><small>点击飞出的蜜蜂，进入板桥 3D 导览</small></div>
-    <a className="banqiao-flow-screen__bee-hotspot" href="/#/lab/toushi-presets/banqiao" aria-label="进入板桥 3D 导览">蜂</a>
+    <a className="banqiao-flow-screen__bee-hotspot" href="#/lab/toushi-presets/banqiao" aria-label="进入板桥 3D 导览">蜂</a>
   </main>
 }
 
 function WallDrawingScene() {
   const [ready, setReady] = useState(false)
   return <main className={`wall-drawing-scene ${ready ? 'is-ready' : ''}`}>
-    <img className="wall-drawing-scene__image" src="/assets/ke/sz-02-wall-drawing-v12.png" alt="老屋墙面与陶土小物" onLoad={() => setReady(true)} />
+    <img className="wall-drawing-scene__image" src={assetPath('ke/sz-02-wall-drawing-v12.png')} alt="老屋墙面与陶土小物" onLoad={() => setReady(true)} />
     <div className="wall-drawing-scene__veil" aria-hidden="true" />
     <section className="wall-drawing-scene__copy" aria-label="艺术手艺人的理解">
       <p className="wall-drawing-scene__kicker">松庄 · 艺术手艺人的理解</p>
@@ -891,8 +892,8 @@ function BanqiaoBeeGuideRoute() {
 
 const banqiaoKeCopy = {
   'banqiao-lan-teacher': {
-    image: '/assets/imagegen/banqiao-transition/bq-ribbon-to-lan-tail-v1.png',
-    transitionVideo: '/assets/imagegen/banqiao-assets/2-web.mp4',
+    image: assetPath('banqiao-transition/bq-ribbon-to-lan-tail-v1.png'),
+    transitionVideo: assetPath('imagegen/banqiao-assets/2-web.mp4'),
     alt: '布带散线过渡到兰老师编织手部的尾帧',
     title: '彩带从一根线开始',
     paragraphs: [
@@ -906,7 +907,7 @@ const banqiaoKeCopy = {
     outro: '线还在继续，接下来听她讲板桥。',
   },
   'banqiao-materials': {
-    image: '/assets/ke/bq-02-teacher-v10.png',
+    image: assetPath('ke/bq-02-teacher-v10.png'),
     alt: '兰老师的风格化肖像与编织纹理',
     title: '她带我们粗略游览板桥',
     paragraphs: [
@@ -928,7 +929,7 @@ function BanqiaoKeTextPage({ station, village }) {
   return <main className={`banqiao-copy-page banqiao-copy-page--${station.id} ${transitionDone ? 'is-ready' : 'is-transitioning'}`}>
     <img className="banqiao-copy-page__image" src={copy.image} alt={copy.alt} />
     <div className="banqiao-copy-page__wash" aria-hidden="true" />
-    {copy.transitionVideo && <video className={`banqiao-copy-page__transition ${transitionDone ? 'is-done' : ''}`} src={copy.transitionVideo.includes('/banqiao-assets/') ? '/assets/imagegen/banqiao-assets/2-web.mp4' : copy.transitionVideo} autoPlay muted playsInline onEnded={() => setTransitionDone(true)} onError={() => setTransitionDone(true)} aria-hidden="true" />}
+    {copy.transitionVideo && <video className={`banqiao-copy-page__transition ${transitionDone ? 'is-done' : ''}`} src={copy.transitionVideo} autoPlay muted playsInline onEnded={() => setTransitionDone(true)} onError={() => setTransitionDone(true)} aria-hidden="true" />}
     <Header backTo={`/village/${village.id}`} backLabel={village.name} />
     <section className="banqiao-copy-page__content">
       <p className="banqiao-copy-page__index">{station.kicker}</p>

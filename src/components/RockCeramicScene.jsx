@@ -1,19 +1,20 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAudio } from '../audio/AudioProvider.jsx'
+import { assetPath } from '../lib/assetPath.js'
 
-const BACKGROUND = '/assets/rock-ceramic/rock-background-v1.png'
-const FINAL_REFERENCE = '/assets/rock-ceramic/clay-cat-reference-v8.png'
+const BACKGROUND = assetPath('rock-ceramic/rock-background-v1.png')
+const FINAL_REFERENCE = assetPath('rock-ceramic/clay-cat-reference-v8.png')
 const CERAMIC_ASSETS = {
-  main: '/assets/rock-ceramic/ceramic-main-cat-v1-alpha.png',
-  face: '/assets/rock-ceramic/ceramic-face-v1-alpha.png',
+  main: assetPath('rock-ceramic/ceramic-main-cat-v1-alpha.png'),
+  face: assetPath('rock-ceramic/ceramic-face-v1-alpha.png'),
 }
 const GARBAGE_ASSETS = {
-  cigarette: '/assets/rock-ceramic/garbage-cigarettes-v1-alpha.png',
-  tissue: '/assets/rock-ceramic/garbage-tissue-v1-alpha.png',
-  paper: '/assets/rock-ceramic/garbage-wrapper-v1-alpha.png',
-  wrapper: '/assets/rock-ceramic/garbage-wrapper-v1-alpha.png',
-  debris: '/assets/rock-ceramic/garbage-debris-v1-alpha.png',
+  cigarette: assetPath('rock-ceramic/garbage-cigarettes-v1-alpha.png'),
+  tissue: assetPath('rock-ceramic/garbage-tissue-v1-alpha.png'),
+  paper: assetPath('rock-ceramic/garbage-wrapper-v1-alpha.png'),
+  wrapper: assetPath('rock-ceramic/garbage-wrapper-v1-alpha.png'),
+  debris: assetPath('rock-ceramic/garbage-debris-v1-alpha.png'),
 }
 const PHASE = {
   CLEANING: 'cleaning',

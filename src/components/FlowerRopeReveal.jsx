@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { assetPath } from '../lib/assetPath.js'
 
 const VIEWBOX = { width: 1536, height: 1024 }
 const ROPE_PATH = 'M -18 258 C 130 300 266 500 430 638 C 590 760 752 758 900 710 C 1068 662 1208 566 1340 512 C 1420 480 1482 462 1552 450'
@@ -94,8 +95,8 @@ export default function FlowerRopeReveal() {
           </mask>
         </defs>
         <rect width={VIEWBOX.width} height={VIEWBOX.height} fill="#f4ead5" />
-        <image href="/assets/ke/sz-03-flower-rope-v10.png" width={VIEWBOX.width} height={VIEWBOX.height} preserveAspectRatio="none" mask="url(#flower-rope-reveal-mask)" />
-        <image className="flower-rope__complete-reveal" href="/assets/ke/sz-03-flower-rope-v10.png" width={VIEWBOX.width} height={VIEWBOX.height} preserveAspectRatio="none" style={{ opacity: complete ? 1 : 0 }} />
+        <image href={assetPath('ke/sz-03-flower-rope-v10.png')} width={VIEWBOX.width} height={VIEWBOX.height} preserveAspectRatio="none" mask="url(#flower-rope-reveal-mask)" />
+        <image className="flower-rope__complete-reveal" href={assetPath('ke/sz-03-flower-rope-v10.png')} width={VIEWBOX.width} height={VIEWBOX.height} preserveAspectRatio="none" style={{ opacity: complete ? 1 : 0 }} />
         <path className="flower-rope__ghost-path" d={ROPE_PATH} pathLength="1" strokeDasharray="0.006 0.018" />
       </svg>
 

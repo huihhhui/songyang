@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { paperStageCopy } from '../data/paperStageCopy.js'
+import { assetPath } from '../lib/assetPath.js'
 
 const VIEWBOX = { width: 1536, height: 1024 }
 function clamp(value, min, max) {
@@ -144,25 +145,25 @@ export default function PaperStage() {
       <div className="paper-stage__warmth" aria-hidden="true" />
 
       <div className="paper-stage__lamp" onPointerDown={ignite} aria-hidden="true">
-        <img src="/assets/ke/sz-02-lamp-v10.png" alt="" />
+        <img src={assetPath('ke/sz-02-lamp-v10.png')} alt="" />
       </div>
       <div className="paper-stage__projection paper-stage__projection--bird" aria-hidden="true">
-        <img src="/assets/ke/sz-03-wood-bird-3.png" alt="" />
+        <img src={assetPath('ke/sz-03-wood-bird-3.png')} alt="" />
       </div>
       <div className="paper-stage__projection paper-stage__projection--turtle" aria-hidden="true">
-        <img src="/assets/ke/sz-03-tile-turtle-3.png" alt="" />
+        <img src={assetPath('ke/sz-03-tile-turtle-3.png')} alt="" />
       </div>
       <div className="paper-stage__shadow paper-stage__shadow--bird" aria-hidden="true">
-        <img src="/assets/ke/sz-03-wood-bird-2.png" alt="" />
+        <img src={assetPath('ke/sz-03-wood-bird-2.png')} alt="" />
       </div>
       <div className="paper-stage__shadow paper-stage__shadow--turtle" aria-hidden="true">
-        <img src="/assets/ke/sz-03-tile-turtle-2.png" alt="" />
+        <img src={assetPath('ke/sz-03-tile-turtle-2.png')} alt="" />
       </div>
       <div className="paper-stage__object paper-stage__object--bird" aria-hidden="true">
-        <img src="/assets/ke/sz-03-wood-bird-1.png" alt="" />
+        <img src={assetPath('ke/sz-03-wood-bird-1.png')} alt="" />
       </div>
       <div className="paper-stage__object paper-stage__object--turtle" aria-hidden="true">
-        <img src="/assets/ke/sz-03-tile-turtle-1.png" alt="" />
+        <img src={assetPath('ke/sz-03-tile-turtle-1.png')} alt="" />
       </div>
 
       <section className="paper-stage__copy paper-stage__copy--upper" aria-label="村民艺术创作">

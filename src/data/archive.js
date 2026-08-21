@@ -32,7 +32,7 @@ export const rightsLabels = {
   cleared: '可在本项目内展示',
 }
 
-const asset = (name, alt, position = 'center') => ({ src: `/assets/ke/${name}`, alt, position })
+const asset = (name, alt, position = 'center') => ({ src: `${import.meta.env.BASE_URL}assets/ke/${name}`, alt, position })
 
 export const villages = [
   { id: 'yangjiatang', name: '杨家堂', englishName: 'YANGJIATANG', index: '01', palette: 'yang', intro: '沿着石阶上行，在夫妻树和瓦片门洞之间放慢脚步。', stations: ['yangjiatang-couple-tree', 'yangjiatang-tile-door'] },

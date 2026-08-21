@@ -1,4 +1,4 @@
-@font-face { font-family: 'Oradano Ming'; src: url('/assets/imagegen/banqiao-assets/ORADANOMingChaoTi/ORADANOMingChaoTi/CC0-OradanoMingChaoTi-2.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Oradano Ming'; src: url('./assets/imagegen/banqiao-assets/ORADANOMingChaoTi/ORADANOMingChaoTi/CC0-OradanoMingChaoTi-2.ttf') format('truetype'); font-display: swap; }
 @font-face { font-family: 'KidTYPE Crayon'; src: url('/assets/imagegen/banqiao-assets/KidTYPE-Crayon/KidTYPE-Crayon/殴り書きクレヨン') format('truetype'); font-display: swap; }
 @font-face { font-family: 'Huiwen Ming'; src: url('/assets/imagegen/banqiao-assets/Huiwenmingchaoti/汇文明朝体.otf') format('opentype'); font-display: swap; }
 :root { color: #202522; background: #e9ece8; font-family: 'Microsoft YaHei', 'Noto Sans SC', sans-serif; font-synthesis: none; text-rendering: optimizeLegibility; --ink: #202522; --muted: #66706a; --line: #b6c0b9; --paper: #f3f4ef; --accent: #b14832; --font-ming: 'Oradano Ming', 'Songti SC', serif; --font-crayon: 'KidTYPE Crayon', 'KaiTi', cursive; }
@@ -77,7 +77,7 @@ a { color: inherit; }
 .bq-scene[aria-hidden='false'] { opacity: 1; pointer-events: auto; }
 .bq-photo { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
 .bq-scene--hands .bq-photo { object-position: center; filter: brightness(.65) saturate(.7) contrast(1.08); }
-.bq-photo-slice { position: absolute; pointer-events: none; background-image: url('/assets/source/banqiao/teacher-weaving.jpg'); background-repeat: no-repeat; background-size: cover; }
+.bq-photo-slice { position: absolute; pointer-events: none; background-image: var(--asset-source-teacher); background-repeat: no-repeat; background-size: cover; }
 .bq-photo-slice--warp { inset: 0; background-position: center; clip-path: polygon(0 0, 46% 0, 59% 100%, 0 100%); transform: translateX(calc(var(--pull) * 21vw)); transition: transform 70ms linear; filter: saturate(1.2) contrast(1.16) brightness(1.1); mix-blend-mode: screen; opacity: calc(.15 + var(--pull) * .82); }
 .bq-photo-slice--wood { left: 0; bottom: 0; width: 48%; height: 42%; background-position: left bottom; filter: brightness(.75) saturate(.82); clip-path: polygon(0 15%, 93% 0, 100% 100%, 0 100%); opacity: .93; }
 .bq-quote { position: absolute; z-index: 2; max-width: min(460px, 36vw); padding: 4px 0 8px; opacity: 0; transform: translateY(20px); transition: opacity 700ms ease, transform 700ms ease; }
@@ -86,7 +86,7 @@ a { color: inherit; }
 .bq-quote--first { top: 15%; right: 7%; max-width: min(400px, 31vw); opacity: 1; transform: none; }
 .bq-quote--second { right: 7%; bottom: 11%; left: auto; max-width: min(390px, 30vw); opacity: var(--quote-two, 0); }
 .bq-scene--hands:has(.bq-thread-field[style*='--pull: 0.']) .bq-quote--second { opacity: 0; }
-.bq-shuttle { position: absolute; z-index: 4; top: 12%; left: calc(38% + var(--pull) * 33%); width: clamp(90px, 10vw, 154px); height: clamp(200px, 25vw, 370px); border: 0; background: url('/assets/source/banqiao/teacher-weaving.jpg') center / cover no-repeat; background-position: 59% 25%; cursor: grab; touch-action: none; transition: left 80ms linear; clip-path: polygon(35% 0, 65% 0, 91% 50%, 65% 100%, 35% 100%, 9% 50%); filter: brightness(1.05) saturate(.85) drop-shadow(0 8px 10px rgb(0 0 0 / .42)); }
+.bq-shuttle { position: absolute; z-index: 4; top: 12%; left: calc(38% + var(--pull) * 33%); width: clamp(90px, 10vw, 154px); height: clamp(200px, 25vw, 370px); border: 0; background: var(--asset-source-teacher) center / cover no-repeat; background-position: 59% 25%; cursor: grab; touch-action: none; transition: left 80ms linear; clip-path: polygon(35% 0, 65% 0, 91% 50%, 65% 100%, 35% 100%, 9% 50%); filter: brightness(1.05) saturate(.85) drop-shadow(0 8px 10px rgb(0 0 0 / .42)); }
 .bq-shuttle:active { cursor: grabbing; }
 .bq-shuttle::before { position: absolute; inset: 8%; border: 1px solid rgb(242 218 164 / calc(.28 + var(--pull) * .65)); content: ''; clip-path: inherit; }
 .bq-shuttle span { display: none; }
@@ -140,7 +140,7 @@ a { color: inherit; }
 .bq-thread-lane--indigo .bq-thread-curve__main { stroke: #0f4194; }
 .bq-thread-lane--indigo .bq-thread-curve__highlight { stroke: rgb(123 181 239 / .72); }
 .bq-weft-line { position: absolute; z-index: 8; left: calc(clamp(120px, 22vw, 390px) + clamp(100px, 8.4vw, 142px) + var(--push-x, 0vw)); top: 0; width: clamp(8px, .85vw, 14px); height: 100%; border-radius: 999px; background: linear-gradient(90deg, #1c2327, #d9d1b8 42%, #104193 58%, #1a2227); box-shadow: 0 0 0 1px rgb(255 250 230 / .22), 0 12px 22px rgb(25 22 16 / .22); opacity: 0; transform: translateY(-102%); animation: bq-weft-drop 820ms cubic-bezier(.2,.7,.2,1) forwards; pointer-events: none; }
-.bq-shuttle--mechanic { z-index: 7; top: calc(var(--needle-y) - 10%); left: calc(clamp(120px, 22vw, 390px) + var(--push-x, 0vw)); width: clamp(118px, 9.8vw, 168px); height: clamp(900px, 150vh, 1400px); border: 0; background: url('/assets/imagegen/banqiao-assets/banqiao-bamboo-strip-v1-alpha-trim.png') top center / contain no-repeat; box-shadow: none; cursor: ns-resize; touch-action: none; transform: none; transition: top 70ms cubic-bezier(.2,.7,.2,1), left 110ms cubic-bezier(.2,.7,.2,1); }
+.bq-shuttle--mechanic { z-index: 7; top: calc(var(--needle-y) - 10%); left: calc(clamp(120px, 22vw, 390px) + var(--push-x, 0vw)); width: clamp(118px, 9.8vw, 168px); height: clamp(900px, 150vh, 1400px); border: 0; background: var(--asset-bamboo-strip) top center / contain no-repeat; box-shadow: none; cursor: ns-resize; touch-action: none; transform: none; transition: top 70ms cubic-bezier(.2,.7,.2,1), left 110ms cubic-bezier(.2,.7,.2,1); }
 .bq-shuttle--push { cursor: ew-resize; }
 .bq-shuttle--mechanic { filter: drop-shadow(10px 0 11px rgb(25 22 16 / .18)); }
 .bq-shuttle--mechanic::before { content: ''; position: absolute; left: 45%; top: 7%; width: 10%; height: 11%; border-radius: 999px; background: rgb(255 229 158 / .28); box-shadow: 0 0 34px rgb(255 224 143 / .36); transform: translateX(-50%); }
@@ -238,7 +238,7 @@ a { color: inherit; }
 
 .paper-stage__wall {
   z-index: 0;
-  background: url('/assets/ke/sz-02-lamp-v10.png') center / cover no-repeat;
+  background: var(--asset-ke-lamp) center / cover no-repeat;
   filter: brightness(.4) saturate(.58) sepia(.08);
   transition: filter 560ms ease-out;
 }
@@ -995,7 +995,7 @@ a { color: inherit; }
   border: 2px solid rgb(238 226 201 / .88);
   border-radius: 1px;
   background-color: #274f83;
-  background-image: url('/assets/imagegen/banqiao-assets/lan-scrollbar-v1.png');
+  background-image: var(--asset-lan-scrollbar);
   background-position: center;
   background-size: auto 180px;
   box-shadow: inset 0 0 0 1px rgb(255 250 230 / .35);

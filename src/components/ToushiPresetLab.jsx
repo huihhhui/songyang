@@ -8,6 +8,7 @@ import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js'
 import { HalftonePass } from 'three/examples/jsm/postprocessing/HalftonePass.js'
 import { RenderPixelatedPass } from 'three/examples/jsm/postprocessing/RenderPixelatedPass.js'
+import { assetPath } from '../lib/assetPath.js'
 
 import './toushi-presets.css'
 
@@ -104,9 +105,9 @@ const CONTROL_SCHEMAS = {
   ],
 }
 
-const DEFAULT_MODEL = '/assets/imagegen/banqiao-assets/toushi/base_basic_pbr.glb'
-const FALLBACK_MODEL = '/assets/imagegen/banqiao-assets/toushi/base_basic_shaded.glb'
-const EXTRA_MODEL = '/assets/imagegen/banqiao-assets/1c94875422c97c3929a27501f34ba18d-web.glb'
+const DEFAULT_MODEL = assetPath('imagegen/banqiao-assets/toushi/base_basic_pbr.glb')
+const FALLBACK_MODEL = assetPath('imagegen/banqiao-assets/toushi/base_basic_shaded.glb')
+const EXTRA_MODEL = assetPath('imagegen/banqiao-assets/1c94875422c97c3929a27501f34ba18d-web.glb')
 
 const COLOR_PALETTES = {
   wireframe: {
