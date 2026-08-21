@@ -691,22 +691,6 @@ a { color: inherit; }
 .wall-drawing-scene__image { display: block; object-fit: cover; object-position: center; }
 .wall-drawing-scene__veil { z-index: 1; background: linear-gradient(90deg, transparent 0 54%, rgba(244, 228, 199, .2) 70%, rgba(244, 228, 199, .68) 100%); pointer-events: none; }
 
-/* Preserve the 1536x1024 artwork stage on wide Edge viewports. The document
-   background becomes the letterbox instead of stretching or cropping plates. */
-@media (min-aspect-ratio: 1 / 1) {
-  .paper-stage,
-  .flower-rope,
-  .rock-scene,
-  .wall-drawing-scene {
-    position: fixed;
-    inset: 50% auto auto 50%;
-    width: min(100vw, 100vh * 1.5, 1536px);
-    height: min(100vh, 100vw / 1.5, 1024px);
-    min-height: 0;
-    aspect-ratio: 3 / 2;
-    transform: translate(-50%, -50%);
-  }
-}
 .wall-drawing-scene__copy { position: absolute; z-index: 2; left: clamp(28px, 7vw, 108px); right: clamp(28px, 7vw, 108px); bottom: clamp(82px, 12vh, 150px); max-width: 560px; }
 .wall-drawing-scene__copy { left: auto; right: clamp(34px, 7vw, 112px); top: 50%; bottom: auto; width: min(520px, 38vw); transform: translateY(-50%); }
 .wall-drawing-scene__kicker { margin: 0 0 18px; color: rgba(73, 59, 43, .68); font: 12px/1.2 Georgia, 'Times New Roman', serif; letter-spacing: .16em; }

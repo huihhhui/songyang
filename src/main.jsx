@@ -7,6 +7,19 @@ import { AudioProvider } from './audio/AudioProvider.jsx'
 import { assetPath } from './lib/assetPath.js'
 
 const cssAsset = (path) => `url(${new URL(assetPath(path), document.baseURI).href})`
+const fontAsset = (path) => new URL(assetPath(path), document.baseURI).href
+
+// Register fonts through the FontFace API. CSS custom properties are not
+// consistently accepted inside @font-face src declarations in Edge.
+for (const [family, path] of [
+  ['PingFang Qiao Mu', 'fonts/PingFangQiaoMuTi.ttf'],
+  ['KidTYPE Crayon', 'fonts/KidTypeCrayon.ttf'],
+  ['Huiwen Ming', 'fonts/HuiwenMing.otf'],
+]) {
+  const font = new FontFace(family, `url(${fontAsset(path)})`)
+  document.fonts.add(font)
+  font.load().catch(() => {})
+}
 
 document.documentElement.style.setProperty('--asset-ke-bq-house', cssAsset('ke/bq-01-earthen-house-v13.png'))
 document.documentElement.style.setProperty('--asset-ke-lamp', cssAsset('ke/sz-02-lamp-v10.png'))
