@@ -298,7 +298,7 @@ function LegacyBanqiaoJourney() {
   </main>
 }
 
-function BanqiaoYarnPhysicsV2({ needleY, dragging, bladeRef, phase, pushProgress, active = true }) {
+function BanqiaoYarnPhysicsV2({ needleY, dragging, bladeRef, phase, pushProgress, active = true, stageRef }) {
   const baseCanvas = useRef(null)
   const weftCanvas = useRef(null)
   const liftedCanvas = useRef(null)
@@ -364,8 +364,9 @@ function BanqiaoYarnPhysicsV2({ needleY, dragging, bladeRef, phase, pushProgress
     const clamp = (value, min, max) => Math.max(min, Math.min(max, value))
     const resize = () => {
       const dpr = window.devicePixelRatio || 1
-      width = window.innerWidth
-      height = window.innerHeight
+      const frame = stageRef?.current?.getBoundingClientRect()
+      width = frame?.width || window.innerWidth
+      height = frame?.height || window.innerHeight
       for (const canvas of [base, weftLayer, lifted]) {
         canvas.width = Math.round(width * dpr)
         canvas.height = Math.round(height * dpr)
@@ -677,7 +678,7 @@ function BanqiaoYarnPhysicsV2({ needleY, dragging, bladeRef, phase, pushProgress
       window.removeEventListener('resize', resize)
       window.cancelAnimationFrame(raf)
     }
-  }, [])
+  }, [stageRef])
 
   return <>
     <canvas className="bq-yarn-canvas bq-yarn-canvas--base" ref={baseCanvas} aria-hidden="true" />
@@ -696,6 +697,7 @@ function BanqiaoJourneyV2({ initialStage }) {
   const [journeyStage, setJourneyStage] = useState(initialStage === 'bee' ? 'bee' : 'weave')
   const dragging = useRef(false)
   const bladeRef = useRef(null)
+  const stageRef = useRef(null)
 
   useEffect(() => {
     if (phase !== 'weft') return undefined
@@ -727,12 +729,17 @@ function BanqiaoJourneyV2({ initialStage }) {
 
   const movePull = (event) => {
     if (!dragging.current) return
+    const stage = stageRef.current?.getBoundingClientRect()
+    const stageX = stage ? event.clientX - stage.left : event.clientX
+    const stageY = stage ? event.clientY - stage.top : event.clientY
+    const stageWidth = stage?.width || window.innerWidth
+    const stageHeight = stage?.height || window.innerHeight
     if (phase === 'push') {
-      const nextPush = (event.clientX - window.innerWidth * 0.1) / (window.innerWidth * 0.42)
+      const nextPush = (stageX - stageWidth * 0.1) / (stageWidth * 0.42)
       setPushProgress(Math.max(0, Math.min(1, nextPush)))
       return
     }
-    const nextY = (event.clientY / window.innerHeight) * 100
+    const nextY = (stageY / stageHeight) * 100
     const clampedY = Math.max(5, Math.min(92, nextY))
     setNeedleY(clampedY)
     if (clampedY < 13) setPhase('weft')
@@ -760,7 +767,7 @@ function BanqiaoJourneyV2({ initialStage }) {
     return <BanqiaoBeeScene />
   }
 
-  return <main
+  return <main ref={stageRef}
     className={`banqiao-play banqiao-play--mechanic banqiao-play--mechanic-v2 ${materialSwap ? 'banqiao-play--material-swap' : ''} ${completed ? 'banqiao-play--complete' : ''} ${journeyStage === 'handoff' ? 'banqiao-play--handoff' : ''}`}
     onPointerMove={movePull}
     onPointerUp={stopPull}
@@ -771,14 +778,14 @@ function BanqiaoJourneyV2({ initialStage }) {
     <video className="bq-ribbon-preload" src={assetPath('imagegen/banqiao-assets/2-web.mp4')} preload="auto" muted playsInline aria-hidden="true" />
     <img className="bq-link-mid" src={assetPath('imagegen/banqiao-assets/mid-lines-web.png')} alt="" aria-hidden="true" />
     <img className="bq-right-band-custom" src={assetPath('imagegen/banqiao-assets/right-band-web.png')} alt="" aria-hidden="true" />
-    <BanqiaoYarnPhysicsV2 needleY={needleY} dragging={isDragging} bladeRef={bladeRef} phase={phase} pushProgress={pushProgress} active={journeyStage !== 'handoff'} />
+    <BanqiaoYarnPhysicsV2 needleY={needleY} dragging={isDragging} bladeRef={bladeRef} phase={phase} pushProgress={pushProgress} active={journeyStage !== 'handoff'} stageRef={stageRef} />
     <button
       ref={bladeRef}
       className={`bq-shuttle bq-shuttle--mechanic bq-shuttle--${phase}`}
       type="button"
       aria-label="\u62d6\u52a8\u7af9\u7247\u6311\u8d77\u7eb1\u7ebf"
       onPointerDown={startPull}
-      style={{ '--needle-y': `${needleY}%`, '--push-x': `${pushProgress * 36}vw` }}
+      style={{ '--needle-y': `${needleY}%`, '--push-x': `${pushProgress * 36}%` }}
     />
     <p className="bq-mechanic-hint">{hint}</p>
     {journeyStage === 'handoff' && <BanqiaoRibbonHandoff onContinue={() => setJourneyStage('bee')} />}
