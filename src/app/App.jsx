@@ -881,9 +881,64 @@ function BanqiaoBeeScene() {
   return <main className={`banqiao-flow-screen banqiao-flow-screen--bee ${videoEnded ? 'is-video-ended' : ''}`}>
     <video className="banqiao-flow-screen__video" src={assetPath('imagegen/banqiao-assets/蜜蜂.mp4')} autoPlay muted playsInline onEnded={() => setVideoEnded(true)} onError={() => setVideoEnded(true)} aria-hidden="true" />
     <a className="banqiao-flow-screen__bee-link banqiao-flow-screen__bee-link--lab" href="#/lab/toushi-presets/banqiao">3D数字实验室</a>
-    <a className="banqiao-flow-screen__bee-link banqiao-flow-screen__bee-link--songzhuang" href="#/flower-rope">松庄</a>
+    <a className="banqiao-flow-screen__bee-link banqiao-flow-screen__bee-link--songzhuang" href="#/flower-rope">松庄·显影实验</a>
     <div className="banqiao-flow-screen__bee-copy"><p>蜂房在前面。</p><small>点击飞出的蜜蜂，进入板桥 3D 导览</small></div>
     <a className="banqiao-flow-screen__bee-hotspot" href="#/lab/toushi-presets/banqiao" aria-label="进入板桥 3D 导览">蜂</a>
+  </main>
+}
+
+const songzhuangWords = [
+  ['线', 36, 24, 0.9, 'deep'], ['编织', 66, 26, 0.7, 'deep'], ['记忆', 88, 42, 0.75, 'deep'],
+  ['竹片', 44, 32, 0.35, 'mid'], ['彩带', 53, 38, 0.5, 'mid'], ['手', 50, 57, 0.85, 'deep'],
+  ['使用', 25, 45, 0.25, 'soft'], ['赠送', 27, 61, 0.42, 'mid'], ['信物', 55, 68, 0.72, 'deep'],
+  ['婚嫁', 82, 59, 0.52, 'mid'], ['关系', 83, 72, 0.8, 'deep'], ['相遇', 67, 78, 0.62, 'mid'],
+  ['畲歌', 34, 76, 0.3, 'soft'], ['对唱', 47, 84, 0.32, 'soft'], ['讲述', 77, 83, 0.32, 'soft'],
+  ['下一代', 62, 88, 0.26, 'soft'], ['变化', 93, 52, 0.22, 'soft'], ['继续', 75, 93, 0.26, 'soft'],
+]
+
+function SongzhuangRevealScene() {
+  const sceneRef = useRef(null)
+  const [closing, setClosing] = useState(false)
+
+  useEffect(() => {
+    const scene = sceneRef.current
+    if (!scene) return undefined
+    const move = (event) => {
+      const rect = scene.getBoundingClientRect()
+      const x = ((event.clientX - rect.left) / rect.width - 0.5) * 2
+      const y = ((event.clientY - rect.top) / rect.height - 0.5) * 2
+      scene.style.setProperty('--scene-px', `${x.toFixed(3)}`)
+      scene.style.setProperty('--scene-py', `${y.toFixed(3)}`)
+    }
+    scene.addEventListener('pointermove', move)
+    return () => scene.removeEventListener('pointermove', move)
+  }, [])
+
+  return <main ref={sceneRef} className={`songzhuang-reveal ${closing ? 'is-closing' : ''}`}>
+    <div className="songzhuang-reveal__paper" aria-hidden="true" />
+    <svg className="songzhuang-reveal__roots" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">
+      <path className="songzhuang-reveal__ribbon" d="M-20 72 C160 35 300 78 432 54 C520 38 572 64 624 105" />
+      <path className="songzhuang-reveal__thread songzhuang-reveal__thread--light" d="M600 92 C640 132 654 164 644 202 C635 238 616 265 607 302" />
+      <path className="songzhuang-reveal__thread" d="M620 92 C665 138 673 172 660 216 C650 250 634 275 624 310" />
+      <path className="songzhuang-reveal__root songzhuang-reveal__root--main" d="M624 300 C616 350 603 395 620 450 C637 510 631 562 595 665" />
+      <path className="songzhuang-reveal__root songzhuang-reveal__root--main" d="M621 405 C565 436 508 462 444 505 C400 535 353 585 298 655" />
+      <path className="songzhuang-reveal__root" d="M618 426 C682 452 744 488 821 525 C872 548 916 585 967 649" />
+      <path className="songzhuang-reveal__root" d="M606 478 C550 505 503 536 469 585 C446 614 421 637 390 664" />
+      <path className="songzhuang-reveal__root" d="M631 477 C690 507 728 553 761 603 C779 631 801 648 829 665" />
+      <path className="songzhuang-reveal__root songzhuang-reveal__root--fine" d="M572 504 C520 526 472 542 426 550 C385 558 344 573 306 602" />
+      <path className="songzhuang-reveal__root songzhuang-reveal__root--fine" d="M674 501 C726 519 788 530 840 532 C891 534 934 545 975 571" />
+      <path className="songzhuang-reveal__root songzhuang-reveal__root--fine" d="M594 548 C551 574 528 612 515 661" />
+      <path className="songzhuang-reveal__root songzhuang-reveal__root--fine" d="M651 540 C687 574 704 617 711 666" />
+    </svg>
+    <p className="songzhuang-reveal__kicker">SONGZHUANG / FIELD NOTES</p>
+    <div className="songzhuang-reveal__word-field" aria-label="松庄显影词语">
+      {songzhuangWords.map(([word, left, top, depth, tone]) => <span key={word} className={`songzhuang-reveal__word songzhuang-reveal__word--${tone}`} style={{ '--word-left': `${left}%`, '--word-top': `${top}%`, '--word-depth': depth }}>{word}</span>)}
+    </div>
+    <button className="songzhuang-reveal__continue" type="button" onClick={() => setClosing(true)}>线还在...</button>
+    <div className="songzhuang-reveal__doors" aria-hidden="true">
+      <div className="songzhuang-reveal__door songzhuang-reveal__door--left" />
+      <div className="songzhuang-reveal__door songzhuang-reveal__door--right" />
+    </div>
   </main>
 }
 
@@ -902,6 +957,7 @@ function WallDrawingScene() {
         <p><strong>产业</strong><span>作为双脚，支撑创作走进日常，脚踏实地地继续。</span></p>
       </div>
     </section>
+    <Link className="wall-drawing-scene__next" to="/songzhuang-reveal">继续显影</Link>
   </main>
 }
 
@@ -977,6 +1033,7 @@ export default function App() {
     <Route path="/village/banqiao" element={<VillageChapter />} />
     <Route path="/lab/toushi-presets/banqiao" element={<BanqiaoBeeGuideRoute />} />
     <Route path="/flower-rope" element={<FlowerRopeReveal />} />
+    <Route path="/songzhuang-reveal" element={<SongzhuangRevealScene />} />
     <Route path="/placeholder/paper-stage-next" element={<PaperStage />} />
     <Route path="/placeholder/rock-ceramic" element={<RockCeramicScene />} />
     <Route path="/placeholder/wall-drawing" element={<WallDrawingScene />} />
