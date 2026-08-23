@@ -238,7 +238,7 @@ body:has(.songzhuang-reveal) { min-height: 100svh; display: grid; place-items: c
   inset: 0;
   z-index: -2;
   background-color: #d8bc89;
-  background-image: url('/assets/imagegen/ke/songzhuang-root-blank-v8.png'),
+  background-image: url('/assets/imagegen/ke/songzhuang-root-blank-v9.png'),
     radial-gradient(circle at 80% 19%, rgb(63 61 38 / .09) 0 1px, transparent 1.6px),
     radial-gradient(circle at 14% 78%, rgb(93 62 33 / .08) 0 1px, transparent 1.7px),
     linear-gradient(120deg, rgb(255 245 212 / .22), transparent 42%);
@@ -280,7 +280,7 @@ body:has(.songzhuang-reveal) { min-height: 100svh; display: grid; place-items: c
 .songzhuang-reveal__word--deep { font-size: clamp(31px, 3.2vw, 54px); font-weight: 600; }
 .songzhuang-reveal__word--mid { font-size: clamp(22px, 2.1vw, 35px); font-weight: 500; }
 .songzhuang-reveal__word--soft { font-size: clamp(16px, 1.45vw, 24px); opacity: .8; }
-.songzhuang-reveal__continue { position: absolute; z-index: 5; right: clamp(8%, 12vw, 190px); bottom: clamp(8%, 12vh, 122px); width: auto; height: auto; padding: 0 0 8px; border: 0; border-bottom: 1px solid currentColor; background: transparent; color: #353827; font: 600 clamp(23px, 2.3vw, 38px)/1.1 var(--font-ming), serif; letter-spacing: .02em; cursor: pointer; transition: color 220ms ease, transform 220ms ease; }
+.songzhuang-reveal__continue { position: absolute; z-index: 5; left: clamp(7%, 10vw, 150px); bottom: clamp(8%, 12vh, 122px); width: auto; height: auto; padding: 0 0 8px; border: 0; border-bottom: 1px solid currentColor; background: transparent; color: #353827; font: 600 clamp(23px, 2.3vw, 38px)/1.1 var(--font-ming), serif; letter-spacing: .02em; cursor: pointer; transition: color 220ms ease, transform 220ms ease; }
 .songzhuang-reveal__continue:hover, .songzhuang-reveal__continue:focus-visible { color: #8b442e; transform: translateX(4px); outline: none; }
 .songzhuang-reveal__doors { position: absolute; inset: 0; z-index: 10; pointer-events: none; }
 .songzhuang-reveal__door { position: absolute; top: 0; width: 50%; height: 100%; background-image: url('/assets/imagegen/ke/songzhuang-root-closed-v1.png'); background-repeat: no-repeat; background-size: 200% 100%; box-shadow: 0 0 30px rgb(19 15 9 / .3); transition: transform 1500ms cubic-bezier(.18,.75,.2,1); }
@@ -300,7 +300,7 @@ body:has(.songzhuang-reveal) { min-height: 100svh; display: grid; place-items: c
   .songzhuang-reveal__word--deep { font-size: clamp(27px, 7vw, 42px); }
   .songzhuang-reveal__word--mid { font-size: clamp(20px, 5vw, 30px); }
   .songzhuang-reveal__word--soft { font-size: clamp(15px, 3.8vw, 20px); }
-  .songzhuang-reveal__continue { right: 10%; bottom: 8%; }
+  .songzhuang-reveal__continue { left: 10%; bottom: 8%; }
 }
 
 /* The paper micro-stage: all visible states are composited from the supplied
