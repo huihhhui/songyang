@@ -33,7 +33,10 @@ export function AudioProvider({ children }) {
     unlockedRef.current = true
     if (muted) return
     const ambience = getTrack('ambience')
-    if (ambience && ambience.paused) ambience.play().catch(() => {})
+    if (ambience && ambience.paused) {
+      if (ambience.volume < 0.01) ambience.volume = 0.12
+      ambience.play().catch(() => {})
+    }
   }, [getTrack, muted])
 
   const play = useCallback((key, { loop = false, restart = false } = {}) => {
@@ -51,6 +54,20 @@ export function AudioProvider({ children }) {
     if (!audio) return
     audio.pause()
     audio.currentTime = 0
+  }, [])
+
+  const fadeOut = useCallback((key = 'ambience', duration = 1400) => {
+    const audio = tracksRef.current.get(key)
+    if (!audio || audio.paused) return
+    const startVolume = audio.volume
+    const startedAt = performance.now()
+    const tick = (now) => {
+      const progress = Math.min(1, (now - startedAt) / duration)
+      audio.volume = startVolume * (1 - progress)
+      if (progress < 1) requestAnimationFrame(tick)
+      else { audio.pause(); audio.currentTime = 0 }
+    }
+    requestAnimationFrame(tick)
   }, [])
 
   const toggleMuted = useCallback(() => {
@@ -92,7 +109,7 @@ export function AudioProvider({ children }) {
     tracksRef.current.forEach((audio) => { audio.muted = muted })
   }, [muted])
 
-  const value = useMemo(() => ({ muted, unlock, play, stop, toggleMuted }), [muted, play, stop, toggleMuted, unlock])
+  const value = useMemo(() => ({ muted, unlock, play, stop, fadeOut, toggleMuted }), [muted, play, stop, fadeOut, toggleMuted, unlock])
   return <AudioContext.Provider value={value}>{children}</AudioContext.Provider>
 }
 

@@ -899,6 +899,8 @@ const songzhuangWords = [
 function SongzhuangRevealScene() {
   const sceneRef = useRef(null)
   const [closing, setClosing] = useState(false)
+  const [finished, setFinished] = useState(false)
+  const { fadeOut } = useAudio()
 
   useEffect(() => {
     const scene = sceneRef.current
@@ -914,7 +916,16 @@ function SongzhuangRevealScene() {
     return () => scene.removeEventListener('pointermove', move)
   }, [])
 
-  return <main ref={sceneRef} className={`songzhuang-reveal ${closing ? 'is-closing' : ''}`}>
+  useEffect(() => {
+    if (!closing) return undefined
+    const timer = window.setTimeout(() => {
+      setFinished(true)
+      fadeOut('ambience', 1500)
+    }, 1550)
+    return () => window.clearTimeout(timer)
+  }, [closing, fadeOut])
+
+  return <main ref={sceneRef} className={`songzhuang-reveal ${closing ? 'is-closing' : ''} ${finished ? 'is-finished' : ''}`}>
     <div className="songzhuang-reveal__paper" aria-hidden="true" />
     <svg className="songzhuang-reveal__roots" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">
       <path className="songzhuang-reveal__ribbon" d="M-20 72 C160 35 300 78 432 54 C520 38 572 64 624 105" />
@@ -934,11 +945,12 @@ function SongzhuangRevealScene() {
     <div className="songzhuang-reveal__word-field" aria-label="松庄显影词语">
       {songzhuangWords.map(([word, left, top, depth, tone]) => <span key={word} className={`songzhuang-reveal__word songzhuang-reveal__word--${tone}`} style={{ '--word-left': `${left}%`, '--word-top': `${top}%`, '--word-depth': depth }}>{word}</span>)}
     </div>
-    <button className="songzhuang-reveal__continue" type="button" onClick={() => setClosing(true)}>线还在...</button>
+    <button className="songzhuang-reveal__continue" type="button" aria-label="线还在...，关闭场景" onClick={() => setClosing(true)}>线还在...</button>
     <div className="songzhuang-reveal__doors" aria-hidden="true">
       <div className="songzhuang-reveal__door songzhuang-reveal__door--left" />
       <div className="songzhuang-reveal__door songzhuang-reveal__door--right" />
     </div>
+    <div className="songzhuang-reveal__blackout" aria-hidden="true" />
   </main>
 }
 
