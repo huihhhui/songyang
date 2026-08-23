@@ -1,5 +1,3 @@
-@font-face { font-family: 'KidTYPE Crayon'; src: var(--asset-font-crayon) format('truetype'); font-display: swap; }
-@font-face { font-family: 'Huiwen Ming'; src: var(--asset-font-huiwen) format('opentype'); font-display: swap; }
 :root { color: #202522; background: #e9ece8; font-family: 'Huiwen Ming', 'Microsoft YaHei', sans-serif; font-synthesis: none; text-rendering: optimizeLegibility; --ink: #202522; --muted: #66706a; --line: #b6c0b9; --paper: #f3f4ef; --accent: #b14832; --font-ming: 'Huiwen Ming', 'Songti SC', serif; --font-crayon: 'KidTYPE Crayon', cursive; }
 * { box-sizing: border-box; }
 html, body, #root { min-height: 100%; margin: 0; }
@@ -1164,7 +1162,7 @@ body:has(.songzhuang-reveal) { min-height: 100svh; display: grid; place-items: c
   transition: opacity 520ms ease, color 180ms ease, transform 520ms ease;
 }
 .banqiao-flow-screen__bee-link--lab { right: 13.5%; top: 34%; }
-.banqiao-flow-screen__bee-link--songzhuang { right: 29%; top: 57.5%; }
+.banqiao-flow-screen__bee-link--songzhuang { right: 18%; top: 65%; }
 .banqiao-flow-screen__bee-link:hover,
 .banqiao-flow-screen__bee-link:focus-visible { color: #1d4d88; transform: translateY(-3px); }
 .rock-scene {
@@ -1520,5 +1518,5 @@ body:has(.songzhuang-reveal) { min-height: 100svh; display: grid; place-items: c
   .banqiao-flow-screen__content h1 { font-size: 38px; margin-bottom: 20px; }
   .banqiao-flow-screen__bee-link { font-size: 21px; }
   .banqiao-flow-screen__bee-link--lab { right: 9%; top: 34%; }
-  .banqiao-flow-screen__bee-link--songzhuang { right: 22%; top: 55.5%; }
+  .banqiao-flow-screen__bee-link--songzhuang { right: 12%; top: 62%; }
 }

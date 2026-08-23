@@ -15,7 +15,7 @@ const fontStyle = document.createElement('style')
 fontStyle.textContent = [
   ['KidTYPE Crayon', 'fonts/KidTypeCrayon.ttf', 'truetype'],
   ['Huiwen Ming', 'fonts/HuiwenMing.otf', 'opentype'],
-].map(([family, path, format]) => `@font-face{font-family:"${family}";src:url("${fontAsset(path)}") format("${format}");font-display:swap;}`).join('')
+].map(([family, path, format]) => `@font-face{font-family:"${family}";src:url("${fontAsset(path)}") format("${format}");font-style:normal;font-weight:100 900;font-display:swap;}`).join('')
 document.head.appendChild(fontStyle)
 
 document.documentElement.style.setProperty('--asset-ke-bq-house', cssAsset('ke/bq-01-earthen-house-v13.png'))
