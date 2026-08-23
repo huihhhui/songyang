@@ -238,7 +238,7 @@ body:has(.songzhuang-reveal) { min-height: 100svh; display: grid; place-items: c
   inset: 0;
   z-index: -2;
   background-color: #d8bc89;
-  background-image: url('/assets/imagegen/ke/songzhuang-root-open-v2.png'),
+  background-image: url('/assets/imagegen/ke/songzhuang-root-blank-v1.png'),
     radial-gradient(circle at 80% 19%, rgb(63 61 38 / .09) 0 1px, transparent 1.6px),
     radial-gradient(circle at 14% 78%, rgb(93 62 33 / .08) 0 1px, transparent 1.7px),
     linear-gradient(120deg, rgb(255 245 212 / .22), transparent 42%);
@@ -275,7 +275,7 @@ body:has(.songzhuang-reveal) { min-height: 100svh; display: grid; place-items: c
 .songzhuang-reveal__root--fine { stroke: #8e805d; stroke-width: 2.5; opacity: .52; }
 .songzhuang-reveal__kicker { position: absolute; z-index: 3; top: clamp(24px, 5vh, 62px); left: clamp(24px, 5vw, 78px); margin: 0; color: rgb(48 49 35 / .62); font: 10px/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .18em; }
 .songzhuang-reveal__word-field { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
-.songzhuang-reveal__word { position: absolute; left: var(--word-left); top: var(--word-top); transform: translate3d(calc(var(--scene-px) * var(--word-depth) * -10px), calc(var(--scene-py) * var(--word-depth) * -7px), 0); color: transparent; text-shadow: none; white-space: nowrap; transition: transform 240ms ease-out, color 220ms ease, opacity 220ms ease; pointer-events: auto; cursor: default; }
+.songzhuang-reveal__word { position: absolute; left: var(--word-left); top: var(--word-top); transform: translate3d(calc(var(--scene-px) * var(--word-depth) * -10px), calc(var(--scene-py) * var(--word-depth) * -7px), 0); color: #353827; text-shadow: 0 1px 0 rgb(239 216 171 / .38); white-space: nowrap; transition: transform 240ms ease-out, color 220ms ease, opacity 220ms ease; pointer-events: auto; cursor: default; }
 .songzhuang-reveal__word:hover { color: #7c3f2b; }
 .songzhuang-reveal__word--deep { font-size: clamp(31px, 3.2vw, 54px); font-weight: 600; }
 .songzhuang-reveal__word--mid { font-size: clamp(22px, 2.1vw, 35px); font-weight: 500; }
